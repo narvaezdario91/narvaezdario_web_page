@@ -1,0 +1,48 @@
+---
+// ThemeScript.astro
+// Este componente encapsula la lógica de inicialización del tema (Dark/Light Mode).
+// Debe colocarse dentro del <head> para evitar FOUC (Flash of Unstyled Content).
+---
+<script is:inline>
+  const getInitialTheme = () => {
+    try {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+    } catch {
+      // Ignorar SecurityError u otros errores de acceso
+    }
+    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+      return 'light';
+    }
+    return 'dark';
+  };
+
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute('data-theme', theme);
+    try {
+      window.localStorage.setItem('theme', theme);
+    } catch {
+      // Ignorar errores de acceso
+    }
+  };
+
+  const initialTheme = getInitialTheme();
+  setTheme(initialTheme);
+
+  // Escuchar cambios de preferencia a nivel sistema operativo
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+    try {
+      // Si el usuario ya estableció una preferencia manual, no sobreescribir con el SO
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) return;
+    } catch {
+      // Ignorar
+    }
+    setTheme(e.matches ? 'light' : 'dark');
+  });
+
+  // Prevenir FOUC causado por transiciones CSS al cargar la página
+  window.addEventListener('load', () => {
+    document.body.classList.add('theme-transition');
+  });
+</script>

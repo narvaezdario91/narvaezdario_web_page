@@ -64,6 +64,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 /* Base Responsive Layout */
 .layout-container {
   width: 100%;

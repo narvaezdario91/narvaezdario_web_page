@@ -53,6 +53,7 @@ development_status:
   1-2-navegacion-global-sticky-header-y-enlaces-de-validacion: done
   1-3-componente-cv-interactivo-con-acordeones-react-island: done
   1-4-pipeline-ci-cd-con-github-actions: review
+  1-5-toggle-modo-oscuro: done
   epic-1-retrospective: optional
   epic-2: backlog
   2-1-configuracion-de-colecciones-de-contenido-content-collections: backlog

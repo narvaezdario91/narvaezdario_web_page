@@ -10,3 +10,7 @@
 - [Review][Defer] Bloque `:root` fragmentado en dos secciones [src/styles/global.css] — deferred, round 3
 - [Review][Defer] Orden semántico de `html {}` antes de `:root` (funciona correctamente en runtime) [src/styles/global.css] — deferred, round 4
 - [Review][Defer] `lang="es"` hardcodeado sin i18n dinámico [src/layouts/Layout.astro] — deferred, round 4
+
+## Deferred from: code review of 1-5-toggle-modo-oscuro.md (2026-07-26)
+
+- [Review][Defer] Sincronización entre múltiples pestañas vía Storage Event — deferred, pre-existing
