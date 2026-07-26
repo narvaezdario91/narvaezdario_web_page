@@ -1,0 +1,234 @@
+---
+// Header.astro - Sticky Header Navigation Component
+---
+
+<header class="header">
+  <div class="header-container">
+    <a href="/" class="brand" aria-label="Ir al inicio">
+      <span class="brand-prefix">&gt;</span>
+      <span class="brand-name">dn.dev</span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="/" class="nav-link">Inicio</a></li>
+        <li><a href="/blog" class="nav-link">Blog</a></li>
+        <li><a href="/sandbox" class="nav-link">Sandbox</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a
+        href="https://github.com/narvaezdario91"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="icon-link"
+        aria-label="Perfil de GitHub"
+      >
+        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"
+          ></path>
+        </svg>
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/dario-leonardo-narvaez-jacome-03984585/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="icon-link"
+        aria-label="Perfil de LinkedIn"
+      >
+        <svg class="icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+          ></path>
+        </svg>
+      </a>
+
+      <a href="/cv.pdf" download="CV_Dario_Narvaez.pdf" class="btn-cv">Descargar CV</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: var(--surface-base);
+    border-bottom: 1px solid var(--border-hairline);
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  @supports (backdrop-filter: blur(1px)) {
+    .header {
+      background-color: color-mix(in srgb, var(--surface-base) 85%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  }
+
+  @supports (-webkit-backdrop-filter: blur(1px)) {
+    .header {
+      background-color: color-mix(in srgb, var(--surface-base) 85%, transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+  }
+
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--layout-max-width);
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  a.brand {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-ink);
+    text-decoration: none;
+    transition: transform 0.15s ease;
+  }
+
+  .brand-prefix {
+    color: var(--accent);
+  }
+
+  a.brand:hover {
+    opacity: 1;
+    color: var(--accent);
+  }
+
+  a.brand:active {
+    transform: scale(0.98);
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a.nav-link {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-ink);
+    text-decoration: none;
+    padding: var(--space-1) var(--space-2);
+    border-radius: 6px;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  a.nav-link:hover {
+    color: var(--accent);
+    background-color: color-mix(in srgb, var(--surface-raised) 50%, transparent);
+    opacity: 1;
+  }
+
+  a.nav-link:active {
+    transform: scale(0.98);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  a.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-1);
+    color: var(--text-ink);
+    border-radius: 6px;
+    transition:
+      color 0.2s ease,
+      transform 0.15s ease;
+  }
+
+  a.icon-link:hover {
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  a.icon-link:active {
+    transform: scale(0.98);
+  }
+
+  a.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--surface-base);
+    background-color: var(--accent);
+    padding: var(--space-2) var(--space-3);
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 30%, transparent);
+    transition:
+      background-color 0.2s ease,
+      transform 0.15s ease,
+      box-shadow 0.2s ease;
+  }
+
+  a.btn-cv:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+
+  a.btn-cv:active {
+    transform: scale(0.98) translateY(0);
+  }
+
+  /* Keyboard Focus Accessibility (WCAG Outline) */
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  /* Responsive Adjustments for Mobile */
+  @media (max-width: 600px) {
+    .header-container {
+      padding: var(--space-2) var(--space-3);
+    }
+
+    .nav-list {
+      gap: var(--space-2);
+    }
+
+    a.nav-link {
+      font-size: 0.875rem;
+      padding: 4px 6px;
+    }
+
+    a.btn-cv {
+      font-size: 0.8rem;
+      padding: 6px 10px;
+    }
+  }
+</style>

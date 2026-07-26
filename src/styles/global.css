@@ -1,0 +1,104 @@
+/* src/styles/global.css */
+
+/* Midnight Cobalt Design System */
+
+:root {
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Layout */
+  --layout-max-width: 800px;
+}
+
+/* Base HTML styling & background fallback */
+html {
+  background-color: var(--surface-base, hsl(243, 46%, 10%));
+}
+
+/* Light Theme Variables */
+:root,
+html[data-theme='light'] {
+  --surface-base: hsl(0, 0%, 100%);
+  --surface-raised: hsl(226, 100%, 94%);
+  --accent: hsl(245, 58%, 51%);
+  --border-hairline: hsl(228, 96%, 89%);
+  --text-ink: hsl(244, 47%, 20%);
+}
+
+/* Dark Theme Variables */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) {
+    --surface-base: hsl(243, 46%, 10%);
+    --surface-raised: hsl(244, 47%, 20%);
+    --accent: hsl(239, 84%, 67%);
+    --border-hairline: hsl(244, 55%, 41%);
+    --text-ink: hsl(226, 100%, 94%);
+  }
+}
+
+html[data-theme='dark'] {
+  --surface-base: hsl(243, 46%, 10%);
+  --surface-raised: hsl(244, 47%, 20%);
+  --accent: hsl(239, 84%, 67%);
+  --border-hairline: hsl(244, 55%, 41%);
+  --text-ink: hsl(226, 100%, 94%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--surface-base);
+  color: var(--text-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Responsive Layout */
+.layout-container {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+/* Typography Base Styles */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  color: var(--text-ink);
+  margin-top: 0;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+* {
+  box-sizing: border-box;
+}

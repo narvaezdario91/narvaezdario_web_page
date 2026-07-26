@@ -1,11 +1,12 @@
 ---
 stepsCompleted: [1, 2, 3]
-inputDocuments: [
-  "prds/prd-narvaezdario_web_page-2026-07-25/prd.md",
-  "architecture/architecture-narvaezdario_web_page-2026-07-25/ARCHITECTURE-SPINE.md",
-  "ux-designs/ux-narvaezdario_web_page-2026-07-26/DESIGN.md",
-  "ux-designs/ux-narvaezdario_web_page-2026-07-26/EXPERIENCE.md"
-]
+inputDocuments:
+  [
+    'prds/prd-narvaezdario_web_page-2026-07-25/prd.md',
+    'architecture/architecture-narvaezdario_web_page-2026-07-25/ARCHITECTURE-SPINE.md',
+    'ux-designs/ux-narvaezdario_web_page-2026-07-26/DESIGN.md',
+    'ux-designs/ux-narvaezdario_web_page-2026-07-26/EXPERIENCE.md',
+  ]
 ---
 
 # narvaezdario_web_page - Epic Breakdown
@@ -49,10 +50,10 @@ This document provides the complete epic and story breakdown for narvaezdario_we
 - **UX-DR2:** Contraste Tipográfico: Sans Serif (Inter/Outfit) para lectura general, y Monospace (Fira Code) para detalles técnicos/metadatos.
 - **UX-DR3:** Tokens de espaciado estándar (4 a 32px) y bordes redondeados (6px, 12px).
 - **UX-DR4:** Efecto visual de "Glassmorphism" sutil en tarjetas elevadas y menú de navegación.
-- **UX-DR5:** Componente *CV Accordions* (Área completamente interactiva, transiciones suaves de altura, icono chevron rotatorio).
-- **UX-DR6:** Componente *Blog Article Card* (Título limpio sin serifas y detalles técnicos monoespaciados).
-- **UX-DR7:** Componente *Sandbox Placeholder* (Estilo consola, animación typing / pulso CSS con texto "Entrenando modelos de recomendación - Fase 1.1...").
-- **UX-DR8:** Patrón de navegación global con *Sticky Header* para retener los CTAs en todo momento al hacer scroll.
+- **UX-DR5:** Componente _CV Accordions_ (Área completamente interactiva, transiciones suaves de altura, icono chevron rotatorio).
+- **UX-DR6:** Componente _Blog Article Card_ (Título limpio sin serifas y detalles técnicos monoespaciados).
+- **UX-DR7:** Componente _Sandbox Placeholder_ (Estilo consola, animación typing / pulso CSS con texto "Entrenando modelos de recomendación - Fase 1.1...").
+- **UX-DR8:** Patrón de navegación global con _Sticky Header_ para retener los CTAs en todo momento al hacer scroll.
 - **UX-DR9:** Estados interactivos (Hover: transición `0.2s ease` de reborde color accent; Active: reducción tamaño `scale 0.98` en clicks).
 - **UX-DR10:** Accesibilidad UX (Contraste superior a WCAG 4.5:1, Outline visible en foco de teclado, y atributos semánticos `details`/`summary` o `aria-expanded`).
 
@@ -70,6 +71,7 @@ This document provides the complete epic and story breakdown for narvaezdario_we
 ## Epic List
 
 ### Epic 1: Perfil Profesional y Validación (Landing Page)
+
 Permitir que los reclutadores y visitantes descubran la experiencia del candidato interactuando con su historial, y facilitar el contacto o validación mediante la descarga del CV y revisión de redes sociales.
 **FRs covered:** FR1, FR2, FR3
 **NFRs covered:** NFR4, NFR5
@@ -149,6 +151,7 @@ So that siempre pueda acceder a la versión más reciente del portafolio sin int
 **Then** debe ver la versión actualizada del portafolio.
 
 ### Epic 2: Demostración de Conocimiento (Blog Técnico)
+
 Demostrar autoridad técnica permitiendo a los visitantes explorar, filtrar y leer artículos sobre ingeniería y automatización sin fricción.
 **FRs covered:** FR4, FR5, FR6
 
@@ -175,7 +178,7 @@ So that pueda explorar los temas y extraer rápidamente su valor.
 
 **Given** que el usuario visita la ruta `/blog`
 **When** la página renderiza
-**Then** se debe mostrar una lista de *Blog Article Cards* ordenadas por fecha
+**Then** se debe mostrar una lista de _Blog Article Cards_ ordenadas por fecha
 **And** el título de la tarjeta debe usar fuente Sans Serif, mientras que la fecha y etiquetas deben usar fuente Monospace.
 
 #### Story 2.3: Filtrado de Artículos por Categorías y Etiquetas
@@ -209,6 +212,7 @@ So that pueda leer el contenido completo con el formato adecuado, especialmente 
 **Then** el contraste de los colores de sintaxis sobre el fondo oscuro debe cumplir estrictamente con el ratio WCAG 4.5:1.
 
 ### Epic 3: Generación de Expectativa Técnica (Sandbox Placeholder)
+
 Mostrar la intención arquitectónica y generar interés por las futuras integraciones de IA (Fase 1.1) a través de una experiencia simulada estilo consola.
 **FRs covered:** FR7, FR8
 

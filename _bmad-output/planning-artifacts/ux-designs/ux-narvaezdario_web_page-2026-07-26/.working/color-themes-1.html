@@ -1,271 +1,412 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Opciones de Color - Terminal Moderna</title>
     <style>
-        :root {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            box-sizing: border-box;
-        }
-        *, *::before, *::after {
-            box-sizing: inherit;
-        }
-        body {
-            margin: 0;
-            padding: 2rem;
-            background-color: #f4f4f5;
-            color: #18181b;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-        .theme-card {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            display: flex;
-            flex-direction: column;
-        }
-        .theme-header {
-            padding: 1rem;
-            background: #fff;
-            border-bottom: 1px solid #e4e4e7;
-        }
-        .theme-header h2 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.25rem;
-        }
-        .theme-header p {
-            margin: 0;
-            font-size: 0.875rem;
-            color: #71717a;
-        }
-        .mode-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            flex: 1;
-        }
-        .mode-view {
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .snippet {
-            border-radius: 6px;
-            padding: 1rem;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 0.85rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            flex: 1;
-        }
-        .snippet-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-        }
-        .btn {
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            border: none;
-            font-family: inherit;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-        }
+      :root {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          'Open Sans',
+          'Helvetica Neue',
+          sans-serif;
+        box-sizing: border-box;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      body {
+        margin: 0;
+        padding: 2rem;
+        background-color: #f4f4f5;
+        color: #18181b;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 2rem;
+      }
+      .theme-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow:
+          0 4px 6px -1px rgba(0, 0, 0, 0.1),
+          0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+      }
+      .theme-header {
+        padding: 1rem;
+        background: #fff;
+        border-bottom: 1px solid #e4e4e7;
+      }
+      .theme-header h2 {
+        margin: 0 0 0.5rem 0;
+        font-size: 1.25rem;
+      }
+      .theme-header p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #71717a;
+      }
+      .mode-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        flex: 1;
+      }
+      .mode-view {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
 
-        /* THEME 1: Deep Ocean Shell */
-        /* Light: bg #f0f4f8, text #0f172a, primary #0ea5e9, border #cbd5e1 */
-        /* Dark: bg #0f172a, text #f8fafc, primary #38bdf8, border #334155 */
-        .t1-light { background-color: #ffffff; }
-        .t1-light .snippet { background-color: #f0f4f8; color: #0f172a; border: 1px solid #cbd5e1; }
-        .t1-light .btn { background-color: #0ea5e9; color: #ffffff; }
-        .t1-dark { background-color: #020617; }
-        .t1-dark .snippet { background-color: #0f172a; color: #f8fafc; border: 1px solid #334155; }
-        .t1-dark .btn { background-color: #38bdf8; color: #0f172a; }
+      .snippet {
+        border-radius: 6px;
+        padding: 1rem;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        flex: 1;
+      }
+      .snippet-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        border: none;
+        font-family: inherit;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+      }
 
-        /* THEME 2: Cyberpunk Console */
-        /* Light: bg #fafafa, text #18181b, primary #0070f3, border #eaeaea */
-        /* Dark: bg #000000, text #ededed, primary #3291ff, border #333333 */
-        .t2-light { background-color: #ffffff; }
-        .t2-light .snippet { background-color: #fafafa; color: #18181b; border: 1px solid #eaeaea; }
-        .t2-light .btn { background-color: #0070f3; color: #ffffff; }
-        .t2-light .snippet-text { color: #0070f3; }
-        .t2-dark { background-color: #111111; }
-        .t2-dark .snippet { background-color: #000000; color: #ededed; border: 1px solid #333333; }
-        .t2-dark .btn { background-color: #3291ff; color: #000000; }
-        .t2-dark .snippet-text { color: #3291ff; }
+      /* THEME 1: Deep Ocean Shell */
+      /* Light: bg #f0f4f8, text #0f172a, primary #0ea5e9, border #cbd5e1 */
+      /* Dark: bg #0f172a, text #f8fafc, primary #38bdf8, border #334155 */
+      .t1-light {
+        background-color: #ffffff;
+      }
+      .t1-light .snippet {
+        background-color: #f0f4f8;
+        color: #0f172a;
+        border: 1px solid #cbd5e1;
+      }
+      .t1-light .btn {
+        background-color: #0ea5e9;
+        color: #ffffff;
+      }
+      .t1-dark {
+        background-color: #020617;
+      }
+      .t1-dark .snippet {
+        background-color: #0f172a;
+        color: #f8fafc;
+        border: 1px solid #334155;
+      }
+      .t1-dark .btn {
+        background-color: #38bdf8;
+        color: #0f172a;
+      }
 
-        /* THEME 3: Nordic Terminal */
-        /* Light: bg #eceff4, text #2e3440, primary #5e81ac, border #d8dee9 */
-        /* Dark: bg #2e3440, text #eceff4, primary #88c0d0, border #4c566a */
-        .t3-light { background-color: #ffffff; }
-        .t3-light .snippet { background-color: #eceff4; color: #2e3440; border: 1px solid #d8dee9; }
-        .t3-light .btn { background-color: #5e81ac; color: #ffffff; }
-        .t3-dark { background-color: #242933; }
-        .t3-dark .snippet { background-color: #2e3440; color: #eceff4; border: 1px solid #4c566a; }
-        .t3-dark .btn { background-color: #88c0d0; color: #2e3440; }
+      /* THEME 2: Cyberpunk Console */
+      /* Light: bg #fafafa, text #18181b, primary #0070f3, border #eaeaea */
+      /* Dark: bg #000000, text #ededed, primary #3291ff, border #333333 */
+      .t2-light {
+        background-color: #ffffff;
+      }
+      .t2-light .snippet {
+        background-color: #fafafa;
+        color: #18181b;
+        border: 1px solid #eaeaea;
+      }
+      .t2-light .btn {
+        background-color: #0070f3;
+        color: #ffffff;
+      }
+      .t2-light .snippet-text {
+        color: #0070f3;
+      }
+      .t2-dark {
+        background-color: #111111;
+      }
+      .t2-dark .snippet {
+        background-color: #000000;
+        color: #ededed;
+        border: 1px solid #333333;
+      }
+      .t2-dark .btn {
+        background-color: #3291ff;
+        color: #000000;
+      }
+      .t2-dark .snippet-text {
+        color: #3291ff;
+      }
 
-        /* THEME 4: Midnight Cobalt */
-        /* Light: bg #e0e7ff, text #1e1b4b, primary #4338ca, border #c7d2fe */
-        /* Dark: bg #1e1b4b, text #e0e7ff, primary #6366f1, border #3730a3 */
-        .t4-light { background-color: #ffffff; }
-        .t4-light .snippet { background-color: #e0e7ff; color: #1e1b4b; border: 1px solid #c7d2fe; }
-        .t4-light .btn { background-color: #4338ca; color: #ffffff; }
-        .t4-dark { background-color: #0f0e26; }
-        .t4-dark .snippet { background-color: #1e1b4b; color: #e0e7ff; border: 1px solid #3730a3; }
-        .t4-dark .btn { background-color: #6366f1; color: #ffffff; }
+      /* THEME 3: Nordic Terminal */
+      /* Light: bg #eceff4, text #2e3440, primary #5e81ac, border #d8dee9 */
+      /* Dark: bg #2e3440, text #eceff4, primary #88c0d0, border #4c566a */
+      .t3-light {
+        background-color: #ffffff;
+      }
+      .t3-light .snippet {
+        background-color: #eceff4;
+        color: #2e3440;
+        border: 1px solid #d8dee9;
+      }
+      .t3-light .btn {
+        background-color: #5e81ac;
+        color: #ffffff;
+      }
+      .t3-dark {
+        background-color: #242933;
+      }
+      .t3-dark .snippet {
+        background-color: #2e3440;
+        color: #eceff4;
+        border: 1px solid #4c566a;
+      }
+      .t3-dark .btn {
+        background-color: #88c0d0;
+        color: #2e3440;
+      }
+
+      /* THEME 4: Midnight Cobalt */
+      /* Light: bg #e0e7ff, text #1e1b4b, primary #4338ca, border #c7d2fe */
+      /* Dark: bg #1e1b4b, text #e0e7ff, primary #6366f1, border #3730a3 */
+      .t4-light {
+        background-color: #ffffff;
+      }
+      .t4-light .snippet {
+        background-color: #e0e7ff;
+        color: #1e1b4b;
+        border: 1px solid #c7d2fe;
+      }
+      .t4-light .btn {
+        background-color: #4338ca;
+        color: #ffffff;
+      }
+      .t4-dark {
+        background-color: #0f0e26;
+      }
+      .t4-dark .snippet {
+        background-color: #1e1b4b;
+        color: #e0e7ff;
+        border: 1px solid #3730a3;
+      }
+      .t4-dark .btn {
+        background-color: #6366f1;
+        color: #ffffff;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Paletas de Color: Terminal Moderna</h1>
     <div class="grid">
-        
-        <!-- Theme 1 -->
-        <div class="theme-card">
-            <div class="theme-header">
-                <h2>1. Deep Ocean Shell</h2>
-                <p>Equilibrado, profesional, muy amigable para la vista. El azul transmite confianza y pulcritud técnica.</p>
-            </div>
-            <div class="mode-container">
-                <div class="mode-view t1-light">
-                    <strong>Claro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#eab308"></div><div class="dot" style="background:#22c55e"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span style="color:#0ea5e9;font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
-                <div class="mode-view t1-dark">
-                    <strong style="color:white">Oscuro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#eab308"></div><div class="dot" style="background:#22c55e"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span style="color:#38bdf8;font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
-            </div>
+      <!-- Theme 1 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <h2>1. Deep Ocean Shell</h2>
+          <p>
+            Equilibrado, profesional, muy amigable para la vista. El azul transmite confianza y
+            pulcritud técnica.
+          </p>
         </div>
-
-        <!-- Theme 2 -->
-        <div class="theme-card">
-            <div class="theme-header">
-                <h2>2. Cyberpunk Console</h2>
-                <p>Contraste extremo. Negros puros y blancos limpios con un acento azul eléctrico vibrante. Sensación "hacker" ultra moderna.</p>
+        <div class="mode-container">
+          <div class="mode-view t1-light">
+            <strong>Claro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #ef4444"></div>
+                <div class="dot" style="background: #eab308"></div>
+                <div class="dot" style="background: #22c55e"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span style="color: #0ea5e9; font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
             </div>
-            <div class="mode-container">
-                <div class="mode-view t2-light">
-                    <strong>Claro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#ff453a"></div><div class="dot" style="background:#ffd60a"></div><div class="dot" style="background:#32d74b"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span class="snippet-text" style="font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
-                <div class="mode-view t2-dark">
-                    <strong style="color:white">Oscuro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#ff453a"></div><div class="dot" style="background:#ffd60a"></div><div class="dot" style="background:#32d74b"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span class="snippet-text" style="font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
+          </div>
+          <div class="mode-view t1-dark">
+            <strong style="color: white">Oscuro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #ef4444"></div>
+                <div class="dot" style="background: #eab308"></div>
+                <div class="dot" style="background: #22c55e"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span style="color: #38bdf8; font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
             </div>
+          </div>
         </div>
+      </div>
 
-        <!-- Theme 3 -->
-        <div class="theme-card">
-            <div class="theme-header">
-                <h2>3. Nordic Terminal</h2>
-                <p>Tonos apagados e inspirados en el tema "Nord". Azules y grises fríos. Muy elegante, sobrio y excelente para lectura larga (blog).</p>
-            </div>
-            <div class="mode-container">
-                <div class="mode-view t3-light">
-                    <strong>Claro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#bf616a"></div><div class="dot" style="background:#ebcb8b"></div><div class="dot" style="background:#a3be8c"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span style="color:#5e81ac;font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
-                <div class="mode-view t3-dark">
-                    <strong style="color:white">Oscuro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#bf616a"></div><div class="dot" style="background:#ebcb8b"></div><div class="dot" style="background:#a3be8c"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span style="color:#88c0d0;font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
-            </div>
+      <!-- Theme 2 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <h2>2. Cyberpunk Console</h2>
+          <p>
+            Contraste extremo. Negros puros y blancos limpios con un acento azul eléctrico vibrante.
+            Sensación "hacker" ultra moderna.
+          </p>
         </div>
-
-        <!-- Theme 4 -->
-        <div class="theme-card">
-            <div class="theme-header">
-                <h2>4. Midnight Cobalt</h2>
-                <p>Azul violeta / cobalto intenso. Una vibra más atrevida y "glassmorphism", ideal para resaltar interfaces interactivas e IA.</p>
+        <div class="mode-container">
+          <div class="mode-view t2-light">
+            <strong>Claro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #ff453a"></div>
+                <div class="dot" style="background: #ffd60a"></div>
+                <div class="dot" style="background: #32d74b"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span class="snippet-text" style="font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
             </div>
-            <div class="mode-container">
-                <div class="mode-view t4-light">
-                    <strong>Claro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#eab308"></div><div class="dot" style="background:#22c55e"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span style="color:#4338ca;font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
-                <div class="mode-view t4-dark">
-                    <strong style="color:white">Oscuro</strong>
-                    <div class="snippet">
-                        <div class="snippet-header">
-                            <div class="dot" style="background:#ef4444"></div><div class="dot" style="background:#eab308"></div><div class="dot" style="background:#22c55e"></div>
-                        </div>
-                        <div>$ npm run analyze</div>
-                        <div>> QA Automation AI Engine<br>> Status: <span style="color:#6366f1;font-weight:bold;">100% OK</span></div>
-                        <button class="btn">View Resume PDF</button>
-                    </div>
-                </div>
+          </div>
+          <div class="mode-view t2-dark">
+            <strong style="color: white">Oscuro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #ff453a"></div>
+                <div class="dot" style="background: #ffd60a"></div>
+                <div class="dot" style="background: #32d74b"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span class="snippet-text" style="font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
             </div>
+          </div>
         </div>
+      </div>
 
+      <!-- Theme 3 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <h2>3. Nordic Terminal</h2>
+          <p>
+            Tonos apagados e inspirados en el tema "Nord". Azules y grises fríos. Muy elegante,
+            sobrio y excelente para lectura larga (blog).
+          </p>
+        </div>
+        <div class="mode-container">
+          <div class="mode-view t3-light">
+            <strong>Claro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #bf616a"></div>
+                <div class="dot" style="background: #ebcb8b"></div>
+                <div class="dot" style="background: #a3be8c"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span style="color: #5e81ac; font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
+            </div>
+          </div>
+          <div class="mode-view t3-dark">
+            <strong style="color: white">Oscuro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #bf616a"></div>
+                <div class="dot" style="background: #ebcb8b"></div>
+                <div class="dot" style="background: #a3be8c"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span style="color: #88c0d0; font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Theme 4 -->
+      <div class="theme-card">
+        <div class="theme-header">
+          <h2>4. Midnight Cobalt</h2>
+          <p>
+            Azul violeta / cobalto intenso. Una vibra más atrevida y "glassmorphism", ideal para
+            resaltar interfaces interactivas e IA.
+          </p>
+        </div>
+        <div class="mode-container">
+          <div class="mode-view t4-light">
+            <strong>Claro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #ef4444"></div>
+                <div class="dot" style="background: #eab308"></div>
+                <div class="dot" style="background: #22c55e"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span style="color: #4338ca; font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
+            </div>
+          </div>
+          <div class="mode-view t4-dark">
+            <strong style="color: white">Oscuro</strong>
+            <div class="snippet">
+              <div class="snippet-header">
+                <div class="dot" style="background: #ef4444"></div>
+                <div class="dot" style="background: #eab308"></div>
+                <div class="dot" style="background: #22c55e"></div>
+              </div>
+              <div>$ npm run analyze</div>
+              <div>
+                > QA Automation AI Engine<br />> Status:
+                <span style="color: #6366f1; font-weight: bold">100% OK</span>
+              </div>
+              <button class="btn">View Resume PDF</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

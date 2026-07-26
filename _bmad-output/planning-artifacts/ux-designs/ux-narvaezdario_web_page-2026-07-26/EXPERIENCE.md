@@ -12,7 +12,7 @@ status: final
 
 El portafolio en la Fase 1.0 tiene una estructura plana enfocada en minimizar la fricción:
 
-- **Inicio / Landing (Single Page principal):** 
+- **Inicio / Landing (Single Page principal):**
   - Cabecera fija (Nav) con enlaces rápidos (CV, Blog, Sandbox, GitHub, LinkedIn).
   - Perfil profesional / Header.
   - CV Interactivo (Línea de tiempo vertical con acordeones).
@@ -26,15 +26,15 @@ El portafolio en la Fase 1.0 tiene una estructura plana enfocada en minimizar la
 
 - **Tono Técnico y Autoridad:** Directo, estructurado y sin adornos. "El código habla por sí mismo".
 - **Microcopy:** Breve. Botones y acciones usan verbos fuertes (`Descargar CV`, `Leer Post`, `Explorar Repositorio`).
-- **Estados vacíos:** No intentan ser graciosos; comunican progreso técnico. (Ej. *"Entrenando modelos de recomendación - Fase 1.1..."*).
+- **Estados vacíos:** No intentan ser graciosos; comunican progreso técnico. (Ej. _"Entrenando modelos de recomendación - Fase 1.1..."_).
 
 ## Component Patterns
 
 - **Navegación:** Sticky header al hacer scroll para retener siempre los "Call to Action" (Descargar PDF, Redes Sociales).
-- **Tarjetas Expandibles (Acordeón de CV):** 
-  - *Trigger:* El bloque entero del rol/puesto es clickeable.
-  - *Behavior:* Expandir/colapsar con animación de altura suave utilizando CSS.
-  - *Indicator:* Icono de chevron (flecha) o cruz a la derecha que rota al abrirse.
+- **Tarjetas Expandibles (Acordeón de CV):**
+  - _Trigger:_ El bloque entero del rol/puesto es clickeable.
+  - _Behavior:_ Expandir/colapsar con animación de altura suave utilizando CSS.
+  - _Indicator:_ Icono de chevron (flecha) o cruz a la derecha que rota al abrirse.
 
 ## State Patterns
 
@@ -56,14 +56,16 @@ El portafolio en la Fase 1.0 tiene una estructura plana enfocada en minimizar la
 ## Key Flows
 
 **Flow 1: Reclutador Técnico (Descubrimiento Rápido)**
-- *Protagonista:* Alex (Technical Recruiter, abre el link desde LinkedIn en su móvil).
-- *Paso 1:* Aterriza en la pantalla inicial y percibe la estética "Terminal Moderna" que transmite autoridad inmediatamente.
-- *Paso 2:* Desliza hacia abajo (scroll) viendo los encabezados de los roles en la línea de tiempo del CV.
-- *Paso 3:* Hace clic en el puesto más reciente. El acordeón se despliega revelando detalles técnicos.
-- *Clímax:* Alex confirma la relevancia del perfil y hace tap en el botón fijo "Descargar CV", guardando el PDF sin cambiar de página.
+
+- _Protagonista:_ Alex (Technical Recruiter, abre el link desde LinkedIn en su móvil).
+- _Paso 1:_ Aterriza en la pantalla inicial y percibe la estética "Terminal Moderna" que transmite autoridad inmediatamente.
+- _Paso 2:_ Desliza hacia abajo (scroll) viendo los encabezados de los roles en la línea de tiempo del CV.
+- _Paso 3:_ Hace clic en el puesto más reciente. El acordeón se despliega revelando detalles técnicos.
+- _Clímax:_ Alex confirma la relevancia del perfil y hace tap en el botón fijo "Descargar CV", guardando el PDF sin cambiar de página.
 
 **Flow 2: Ingeniero / Líder Técnico (Exploración y Expectativa)**
-- *Protagonista:* Sam (Engineering Manager, revisando desde su portátil).
-- *Paso 1:* Escanea rápidamente el perfil y hace clic en la pestaña "Sandbox IA" en el menú de navegación.
-- *Paso 2:* Entra a la sección que muestra una consola vacía con estilo *glassmorphism*.
-- *Clímax:* Lee el indicador parpadeante *"Entrenando modelos de recomendación - Fase 1.1..."*. Sam reconoce la arquitectura de intención y decide revisar el perfil de GitHub en su lugar, con altas expectativas técnicas.
+
+- _Protagonista:_ Sam (Engineering Manager, revisando desde su portátil).
+- _Paso 1:_ Escanea rápidamente el perfil y hace clic en la pestaña "Sandbox IA" en el menú de navegación.
+- _Paso 2:_ Entra a la sección que muestra una consola vacía con estilo _glassmorphism_.
+- _Clímax:_ Lee el indicador parpadeante _"Entrenando modelos de recomendación - Fase 1.1..."_. Sam reconoce la arquitectura de intención y decide revisar el perfil de GitHub en su lugar, con altas expectativas técnicas.

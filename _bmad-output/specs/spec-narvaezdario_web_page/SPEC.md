@@ -1,8 +1,8 @@
 ---
 id: SPEC-narvaezdario_web_page
-companions: 
+companions:
   - ../../planning-artifacts/architecture/architecture-narvaezdario_web_page-2026-07-25/ARCHITECTURE-SPINE.md
-sources: 
+sources:
   - ../../planning-artifacts/prds/prd-narvaezdario_web_page-2026-07-25/prd.md
 ---
 

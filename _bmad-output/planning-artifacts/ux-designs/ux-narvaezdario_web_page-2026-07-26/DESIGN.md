@@ -44,7 +44,7 @@ El enfoque visual enfatiza el contenido. Las animaciones CSS son precisas y no i
 La paleta "Midnight Cobalt" se apoya en fondos muy profundos para el modo oscuro (por defecto) y blancos fríos en el modo claro, con acentos en tonos cobalto/índigo vibrantes.
 
 - **Fondo Base (`surface-base`)**: El lienzo principal. En oscuro es un índigo casi negro (`#0f0e26`), aportando profundidad sin la dureza del negro puro.
-- **Tarjetas / Elementos Elevados (`surface-raised`)**: Ligeramente más claros (`#1e1b4b` oscuro / `#e0e7ff` claro) para destacar secciones como los acordeones del CV. 
+- **Tarjetas / Elementos Elevados (`surface-raised`)**: Ligeramente más claros (`#1e1b4b` oscuro / `#e0e7ff` claro) para destacar secciones como los acordeones del CV.
 - **Acento Técnico (`accent`)**: Cobalto brillante (`#6366f1` oscuro / `#4338ca` claro). Se utiliza para botones de acción (descargar CV) y para resaltar detalles técnicos o estados de carga en terminal.
 - **Bordes (`border-hairline`)**: Utilizados para demarcar suavemente las fronteras de los acordeones o artículos del blog.
 
@@ -52,12 +52,12 @@ La paleta "Midnight Cobalt" se apoya en fondos muy profundos para el modo oscuro
 
 El contraste tipográfico es la principal herramienta de jerarquía técnica.
 
-- **Sans Serif (Inter o similar)**: Utilizada para legibilidad general en títulos (`title`) y cuerpo de texto (`body`). 
-- **Monospace (Fira Code o similar)**: Restringida exclusivamente para acentos técnicos (`meta`), como fechas, etiquetas de versión, comandos simulados en el Sandbox, y bloques de código reales en el blog. 
+- **Sans Serif (Inter o similar)**: Utilizada para legibilidad general en títulos (`title`) y cuerpo de texto (`body`).
+- **Monospace (Fira Code o similar)**: Restringida exclusivamente para acentos técnicos (`meta`), como fechas, etiquetas de versión, comandos simulados en el Sandbox, y bloques de código reales en el blog.
 
 ## Layout & Spacing
 
-Escala estándar de 4/8/12/16/24/32px. 
+Escala estándar de 4/8/12/16/24/32px.
 El diseño es Mobile-First, presentándose en una columna fluida. Los contenedores máximos (max-width) en escritorio asegurarán que el contenido no se extienda excesivamente. Los acordeones del CV tienen un padding interno generoso (24px) para mantener la limpieza cuando se expanden.
 
 ## Elevation & Depth
@@ -72,8 +72,8 @@ La profundidad se logra principalmente mediante la diferencia sutil de tonos (de
 
 ## Do's and Don'ts
 
-| Do | Don't |
-|---|---|
-| Usar fuente monoespaciada para acentos y metadatos. | Usar fuente monoespaciada para párrafos completos. |
-| Utilizar animaciones CSS sutiles y elegantes. | Depender de JavaScript para animaciones decorativas. |
+| Do                                                             | Don't                                                  |
+| -------------------------------------------------------------- | ------------------------------------------------------ |
+| Usar fuente monoespaciada para acentos y metadatos.            | Usar fuente monoespaciada para párrafos completos.     |
+| Utilizar animaciones CSS sutiles y elegantes.                  | Depender de JavaScript para animaciones decorativas.   |
 | Mantener el efecto glassmorphism sutil y en componentes clave. | Abusar del desenfoque en todo el contenedor principal. |
