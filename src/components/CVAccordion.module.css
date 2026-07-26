@@ -1,0 +1,136 @@
+/* src/components/CVAccordion.module.css */
+
+.accordion {
+  background-color: var(--surface-raised);
+  border: 1px solid var(--border-hairline);
+  border-radius: 8px;
+  margin-bottom: var(--space-4);
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.accordion:hover {
+  border-color: var(--accent);
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  background: transparent;
+  border: none;
+  color: var(--text-ink);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+}
+
+.accordionHeader:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.roleTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-ink);
+  margin: 0;
+}
+
+.companyMeta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  flex-wrap: wrap;
+}
+
+.companyName {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.bulletSeparator {
+  opacity: 0.5;
+}
+
+.period {
+  opacity: 0.8;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--accent);
+  margin-left: var(--space-3);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.accordionBody {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.accordionBodyOpen {
+  grid-template-rows: 1fr;
+}
+
+.accordionInner {
+  overflow: hidden;
+}
+
+.content {
+  padding: 0 var(--space-6) var(--space-6) var(--space-6);
+  border-top: 1px solid var(--border-hairline);
+  margin-top: var(--space-2);
+}
+
+.description {
+  margin-top: var(--space-4);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.achievementsList {
+  margin: var(--space-4) 0 0 0;
+  padding-left: var(--space-4);
+}
+
+.achievementItem {
+  margin-bottom: var(--space-3);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.achievementItem strong {
+  color: var(--text-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion,
+  .chevron,
+  .accordionBody {
+    transition: none !important;
+  }
+}
+

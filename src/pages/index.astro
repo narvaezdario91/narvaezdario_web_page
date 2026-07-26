@@ -1,21 +1,131 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import CVAccordion from '../components/CVAccordion';
+
+const experienceData = [
+  {
+    id: 'adl',
+    roleTitle: 'QA Automation Senior | AI Engineer',
+    company: 'AVAL DIGITAL LABS (ADL)',
+    period: '06/2021 – Presente',
+    description:
+      'Profesional Senior enfocado en la aplicación de Inteligencia Artificial, automatización y arquitectura de pruebas para transformar procesos de ingeniería de software.',
+    achievements: [
+      '**Arquitectura y Aceleración E2E de APIs (Servicios Compartidos):** Diseñé una arquitectura de automatización para APIs basada en Java, Rest Assured y Serenity BDD, integrada en pipelines de CI/CD mediante Jenkins y Git.',
+      '**Agilidad en el proceso de QA:** Diseñé e implementé un agente autónomo integrado con Jira mediante Atlassian Rovo para analizar historias de usuario y generar automáticamente casos de prueba.',
+      '**Optimización en el proceso de UX:** Construí un motor de análisis de sentimientos basado en IA para procesar comentarios de usuarios, reduciendo el tiempo de análisis de UX de 4 horas a 5 minutos.',
+      '**Democratización de QA Automation:** Diseñé una arquitectura de automatización basada en Playwright y TypeScript bajo el enfoque KDT.',
+      '**Estandarización de Performance Testing:** Apoyé en el liderazgo de la definición y adopción del estándar corporativo para pruebas de rendimiento (K6 y Docker).',
+    ],
+    defaultOpen: true,
+  },
+  {
+    id: 'thales',
+    roleTitle: 'Ingeniero Validador',
+    company: 'THALES (Antes Gemalto)',
+    period: '06/2019 – 06/2021',
+    description:
+      'Responsable de la evaluación y calidad de soluciones mediante pruebas manuales y automatizadas para sistemas críticos gubernamentales.',
+    achievements: [
+      '**Automatización de Sistemas Biométricos (Nuevo León, México):** Lideré la automatización end-to-end del enrolamiento ciudadano (ABIS).',
+      '**Continuidad Operativa (Ministerio del Interior, Paraguay):** Diseñé una solución de automatización que sustituyó la dependencia de dispositivos biométricos físicos mediante mecanismos de simulación.',
+    ],
+    defaultOpen: false,
+  },
+  {
+    id: 'seratic',
+    roleTitle: 'Desarrollador de Software',
+    company: 'SERATIC',
+    period: '04/2017 – 03/2019',
+    achievements: [
+      '**Desarrollo de Middleware e Integraciones:** Diseñé y codifiqué sistemas intermedios (Groovy / Grails).',
+      '**Arquitectura y Rendimiento:** Construí y ejecuté pruebas automatizadas de carga (jMeter y SOAP UI).',
+      '**Gestión de Producto Internacional:** Actué como Product Owner asignado en Perú (ENEL, MAPFRE, Telefónica, SOLGAS).',
+    ],
+    defaultOpen: false,
+  },
+  {
+    id: 'agilcon',
+    roleTitle: 'Desarrollador de Software',
+    company: 'AGILCON S.A.S.',
+    period: '03/2014 – 03/2017',
+    achievements: [
+      '**Liderazgo Ágil y Desarrollo Fullstack:** Scrum Master y desarrollador web/móvil (Bancolombia, Alpopular, Ripley).',
+      '**Modernización de Arquitecturas:** Lideré migración tecnológica legacy (Oracle Forms) a arquitecturas modernas (Groovy/Grails).',
+    ],
+    defaultOpen: false,
+  },
+];
 ---
 
-<Layout title="Darío Narváez | Midnight Cobalt Portfolio">
-  <main>
-    <h1>Bienvenido a Midnight Cobalt</h1>
-    <p>
-      El scaffold del proyecto, layout base y sistema de diseño se han inicializado correctamente.
-    </p>
+<Layout title="Darío Narváez | QA Automation Senior & AI Engineer">
+  <main className="main-content">
+    <section className="hero-section">
+      <h1 className="hero-title">Darío Narváez</h1>
+      <p className="hero-subtitle">QA Automation Senior | AI Engineer | Software Architecture</p>
+    </section>
+
+    <section className="experience-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" className="section-title">Experiencia Laboral</h2>
+      <div className="accordion-list">
+        {
+          experienceData.map((item) => (
+            <CVAccordion
+              key={item.id}
+              client:visible
+              id={item.id}
+              roleTitle={item.roleTitle}
+              company={item.company}
+              period={item.period}
+              description={item.description}
+              achievements={item.achievements}
+              defaultOpen={item.defaultOpen}
+            />
+          ))
+        }
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
-  main {
+  .main-content {
     padding: var(--space-8) 0;
   }
-  h1 {
+
+  .hero-section {
+    margin-bottom: var(--space-8);
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+    color: var(--text-ink);
+    margin-bottom: var(--space-2);
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
     color: var(--accent);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .experience-section {
+    margin-top: var(--space-6);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    color: var(--text-ink);
+    margin-bottom: var(--space-6);
+    border-bottom: 2px solid var(--border-hairline);
+    padding-bottom: var(--space-2);
+  }
+
+  .accordion-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
 </style>

@@ -51,7 +51,7 @@ development_status:
   epic-1: in-progress
   1-1-scaffold-del-proyecto-layout-base-y-sistema-de-diseno: done
   1-2-navegacion-global-sticky-header-y-enlaces-de-validacion: done
-  1-3-componente-cv-interactivo-con-acordeones-react-island: backlog
+  1-3-componente-cv-interactivo-con-acordeones-react-island: done
   1-4-pipeline-ci-cd-con-github-actions: backlog
   epic-1-retrospective: optional
   epic-2: backlog
