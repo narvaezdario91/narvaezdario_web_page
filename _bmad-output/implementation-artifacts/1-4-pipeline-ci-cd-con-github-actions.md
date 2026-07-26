@@ -3,7 +3,7 @@ baseline_commit: 2a3bde914f3c3da040f2575b32801a3491ef64c8
 ---
 # Story 1.4: Pipeline CI/CD con GitHub Actions
 
-Status: review
+Status: done
 
 <!-- Note: Validation is optional. Run validate-create-story for quality check before dev-story. -->
 
