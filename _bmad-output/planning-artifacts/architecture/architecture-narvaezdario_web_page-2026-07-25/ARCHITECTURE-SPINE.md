@@ -40,8 +40,8 @@ flowchart TD
 ### AD-1 — Manejo de Estilos
 
 - **Binds:** Toda la capa de estilización del proyecto.
-- **Prevents:** Acoplamiento a frameworks utilitarios (Tailwind) y bloqueos en la personalización del diseño "premium".
-- **Rule:** Se utilizará Vanilla CSS con variables HSL nativas y CSS Modules. Todo el diseño y las animaciones deben implementarse mediante hojas de estilo estándar para maximizar el control estético y el rendimiento sin dependencias pesadas.
+- **Prevents:** Desperdicio de tiempo construyendo utilidades comunes y facilita la estandarización del diseño premium.
+- **Rule:** Se utilizará **Tailwind CSS** como motor principal de estilos. Todo el diseño, el layout y las animaciones deben implementarse utilizando sus clases utilitarias para maximizar la velocidad de desarrollo y la consistencia del ecosistema, configurando los tokens de la paleta "Midnight Cobalt" en `tailwind.config.mjs`.
 
 ### AD-2 — Interactividad (Islands Architecture)
 
@@ -60,6 +60,12 @@ flowchart TD
 - **Binds:** Toda la infraestructura de producción y el flujo CI/CD.
 - **Prevents:** Uso de plataformas externas dispersas y despliegues manuales propensos a errores.
 - **Rule:** El proyecto se desplegará en GitHub Pages utilizando un flujo de integración continua automatizado mediante GitHub Actions, consolidando el código y el alojamiento.
+
+### AD-5 — Ecosistema UI (Librerías de Mercado)
+
+- **Binds:** Implementación de componentes interactivos complejos y Data Visualization.
+- **Prevents:** Reinventar la rueda para componentes UI estandarizados, garantizando accesibilidad y mantenibilidad.
+- **Rule:** Se permite y fomenta el uso de librerías del ecosistema React (como Recharts para gráficos y shadcn/ui o Radix UI para componentes base) dentro de las islas de Astro, priorizando la escalabilidad y las mejores prácticas de la industria sobre el minimalismo absoluto de dependencias.
 
 ## Consistency Conventions
 

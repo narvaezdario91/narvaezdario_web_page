@@ -1,4 +1,9 @@
 /* src/styles/global.css */
+/* Tailwind Directives - Preflight resets base HTML elements (h1-h6, a, etc.)
+   Custom base styles below override Preflight using standard CSS cascade. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Midnight Cobalt Design System */
 

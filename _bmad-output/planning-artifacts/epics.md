@@ -27,6 +27,9 @@ This document provides the complete epic and story breakdown for narvaezdario_we
 - **FR6:** Lectura de Artículos (Páginas de artículos individuales soportando Markdown/MDX).
 - **FR7:** Sección "Sandbox" (Enlace en la navegación global al Sandbox IA).
 - **FR8:** Estado "Próximamente" (Placeholder en la sección Sandbox generando expectativa para la Fase 1.1).
+- **FR9:** Visualización Dinámica de Impacto (Gráficos visuales/animados con Recharts que muestren ROI y resultados cuantitativos).
+- **FR10:** CV Estructurado (Organización avanzada del historial laboral con navegación interna por equipos).
+- **FR11:** Bento Grid (Visualización modular de certificaciones y educación).
 
 ### NonFunctional Requirements
 
@@ -67,6 +70,9 @@ This document provides the complete epic and story breakdown for narvaezdario_we
 - **FR6:** Epic 2 - Lectura de Artículos
 - **FR7:** Epic 3 - Sección "Sandbox" Global
 - **FR8:** Epic 3 - Estado "Próximamente"
+- **FR9:** Epic 1.5 - Data Viz
+- **FR10:** Epic 1.5 - Data Viz
+- **FR11:** Epic 1.5 - Data Viz
 
 ## Epic List
 
@@ -149,6 +155,53 @@ So that siempre pueda acceder a la versión más reciente del portafolio sin int
 **Given** que el despliegue se completa exitosamente
 **When** el visitante accede a la URL pública del sitio
 **Then** debe ver la versión actualizada del portafolio.
+
+### Epic 1.5: Visualización Dinámica de Logros y CV Híbrido (Data Viz)
+
+Crear componentes dinámicos e interactivos usando React, Tailwind CSS y librerías del mercado para mostrar visualmente el impacto de negocio del candidato y organizar su extensa hoja de vida.
+**FRs covered:** FR9, FR10, FR11
+
+#### Story 1.5.1: Scaffold de Tailwind CSS e Infraestructura UI
+
+As a visitante,
+I want un sistema de diseño consistente utilizando Tailwind CSS,
+So that los componentes complejos (gráficos, pestañas) tengan una apariencia ultra-premium alineada a 'Midnight Cobalt'.
+
+**Acceptance Criteria:**
+- Tailwind CSS debe estar configurado en el proyecto Astro.
+- Los tokens 'Midnight Cobalt' deben mapearse a las variables de Tailwind.
+- El proyecto debe compilar sin errores en el pipeline de CI/CD.
+
+#### Story 1.5.2: Impact Grid (Visualización de Logros)
+
+As a visitante,
+I want ver gráficos de datos,
+So that el impacto cuantitativo del candidato (3 años a 1 año, 9 a 190, 4h a 5m, 100% agnosticismo) sea inmediatamente evidente.
+
+**Acceptance Criteria:**
+- Implementar gráficos usando Recharts o SVG para las métricas de impacto.
+- Los gráficos deben ser responsivos y accesibles.
+
+#### Story 1.5.3: Componente Avanzado de Experiencia (Tabs por Equipos)
+
+As a reclutador,
+I want navegar la experiencia en AVAL DIGITAL LABS por equipos,
+So that pueda diferenciar el impacto como QA Senior del impacto como AI Engineer.
+
+**Acceptance Criteria:**
+- La tarjeta de AVAL debe contener pestañas internas (Tabs) usando Radix UI o similar.
+- Debe tener secciones separadas para Re:Act, AV Villas/Occidente, Servicios Compartidos, y Transversal.
+- Tarjetas separadas para el resto del historial laboral.
+
+#### Story 1.5.4: Grid de Credenciales (Bento Box) y Tech Marquee
+
+As a reclutador,
+I want ver de un vistazo el stack técnico y certificaciones formales,
+So that pueda hacer check de los requisitos del cargo.
+
+**Acceptance Criteria:**
+- Un Marquee infinito horizontal con las herramientas técnicas.
+- Un layout Bento Box listando las 8 certificaciones (AWS/ISTQB/Scrum) y la maestría/publicaciones.
 
 ### Epic 2: Demostración de Conocimiento (Blog Técnico)
 

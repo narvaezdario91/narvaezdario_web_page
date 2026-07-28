@@ -14,3 +14,7 @@
 ## Deferred from: code review of 1-5-toggle-modo-oscuro.md (2026-07-26)
 
 - [Review][Defer] Sincronización entre múltiples pestañas vía Storage Event — deferred, pre-existing
+
+## Deferred from: code review of 1-5-1-scaffold-de-tailwind-css-e-infraestructura-ui (2026-07-28)
+
+- [Review][Defer] `--legacy-peer-deps` con Astro 7.x — `@astrojs/tailwind@6.0.2` solo declara peer `astro@^3.0.0||^4.0.0||^5.0.0`. La versión 7.x no está en la matrix oficial de pruebas del paquete. Funciona hoy pero sin garantía de soporte a largo plazo. Reevaluar cuando salga una versión compatible con Astro 7.x o migrar a Tailwind CSS v4 con PostCSS nativo.
