@@ -19,14 +19,14 @@ const techStack = [
 >
   {/* Patch F-04: role="list" + role="listitem" for screen reader coherence */}
   <ul class="marquee-track flex animate-marquee motion-reduce:animate-none list-none m-0 p-0" role="list">
-    {techStack.map(tech => (
-      <li class="mx-6 text-xs font-mono font-medium text-[var(--text-ink)] opacity-80 uppercase tracking-wider" role="listitem">{tech}</li>
+    {techStack.map((tech, i) => (
+      <li key={`tech1-${i}`} class="mx-6 text-xs font-mono font-medium text-[var(--text-ink)] opacity-80 uppercase tracking-wider" role="listitem">{tech}</li>
     ))}
   </ul>
   {/* Patch F-02: hidden on reduced-motion so duplicate content never renders for those users */}
   <ul class="marquee-track flex animate-marquee motion-reduce:hidden list-none m-0 p-0" aria-hidden="true" role="presentation">
-    {techStack.map(tech => (
-      <li class="mx-6 text-xs font-mono font-medium text-[var(--text-ink)] opacity-80 uppercase tracking-wider">{tech}</li>
+    {techStack.map((tech, i) => (
+      <li key={`tech2-${i}`} class="mx-6 text-xs font-mono font-medium text-[var(--text-ink)] opacity-80 uppercase tracking-wider">{tech}</li>
     ))}
   </ul>
 </div>
