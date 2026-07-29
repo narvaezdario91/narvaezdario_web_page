@@ -18,3 +18,9 @@
 ## Deferred from: code review of 1-5-1-scaffold-de-tailwind-css-e-infraestructura-ui (2026-07-28)
 
 - [Review][Defer] `--legacy-peer-deps` con Astro 7.x — `@astrojs/tailwind@6.0.2` solo declara peer `astro@^3.0.0||^4.0.0||^5.0.0`. La versión 7.x no está en la matrix oficial de pruebas del paquete. Funciona hoy pero sin garantía de soporte a largo plazo. Reevaluar cuando salga una versión compatible con Astro 7.x o migrar a Tailwind CSS v4 con PostCSS nativo.
+## Deferred from: code review (1-5-3-componente-avanzado-de-experiencia-tabs-por-equipos.md)
+- Missing Error Boundary en Astro Island para proteger contra fallos en React.
+- Las fechas en el subtítulo están hardcodeadas en lugar de ser dinámicas.
+- Radix Tabs no tiene un fallback útil si el usuario tiene JavaScript deshabilitado.
+- ExperienceTabs está muy acoplado a AVAL; se recomienda una interfaz de props genérica.
+
