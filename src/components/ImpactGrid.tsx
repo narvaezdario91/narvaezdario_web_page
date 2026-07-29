@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useId } from 'react';
 
 type MetricType = 'pipeline' | 'team' | 'deployment' | 'agnosticism' | 'continuity';
 
@@ -97,6 +97,7 @@ function PipelineVisual({ isMounted }: { isMounted: boolean }) {
 }
 
 function TeamScalingVisual({ isMounted }: { isMounted: boolean }) {
+  const gradientId = `team-curve-${useId().replace(/:/g, '')}`;
   return (
     <div className="w-full h-24 flex flex-col justify-end pt-2 pb-1 relative">
       <div className="flex justify-between items-end px-3 mb-1 z-10 text-xs font-mono relative">
@@ -112,14 +113,14 @@ function TeamScalingVisual({ isMounted }: { isMounted: boolean }) {
       <div className="absolute inset-x-0 bottom-2 h-16 px-6">
         <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 100" aria-hidden="true">
           <defs>
-            <linearGradient id="teamScalingCurveGradient" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#6366f1" stopOpacity="0.4" />
               <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
             </linearGradient>
           </defs>
           <path
             d="M 0 95 C 50 95, 70 60, 100 5 L 100 100 L 0 100 Z"
-            fill="url(#teamScalingCurveGradient)"
+            fill={`url(#${gradientId})`}
             className={`transition-all duration-1000 ease-in-out motion-reduce:transition-none ${isMounted ? 'opacity-100' : 'opacity-0'}`}
           />
           <path
@@ -128,8 +129,9 @@ function TeamScalingVisual({ isMounted }: { isMounted: boolean }) {
             stroke="currentColor"
             strokeWidth="4"
             className="text-indigo-600 dark:text-indigo-400 transition-all duration-1000 ease-in-out motion-reduce:transition-none"
+            style={{ willChange: 'stroke-dashoffset' }}
             strokeDasharray="200"
-            strokeDashoffset={isMounted ? 0 : 200}
+            strokeDashoffset={isMounted ? "0" : "200"}
           />
         </svg>
       </div>
@@ -184,8 +186,9 @@ function AgnosticismVisual({ isMounted }: { isMounted: boolean }) {
           stroke="currentColor"
           strokeWidth="2"
           className="text-purple-500 transition-all duration-1000 ease-in-out motion-reduce:transition-none"
+          style={{ willChange: 'stroke-dashoffset' }}
           strokeDasharray="200"
-          strokeDashoffset={isMounted ? 0 : 200}
+          strokeDashoffset={isMounted ? "0" : "200"}
         />
 
         {/* Playwright Node */}
