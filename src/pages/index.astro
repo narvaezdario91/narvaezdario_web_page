@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CVAccordion from '../components/CVAccordion';
+import ImpactGrid from '../components/ImpactGrid';
 
 const experienceData = [
   {
@@ -59,15 +60,20 @@ const experienceData = [
 ---
 
 <Layout title="Darío Narváez | QA Automation Senior & AI Engineer">
-  <main className="main-content">
-    <section className="hero-section">
-      <h1 className="hero-title">Darío Narváez</h1>
-      <p className="hero-subtitle">QA Automation Senior | AI Engineer | Software Architecture</p>
+  <main class="main-content">
+    <section class="hero-section">
+      <h1 class="hero-title">Darío Narváez</h1>
+      <p class="hero-subtitle">QA Automation Senior | AI Engineer | Software Architecture</p>
     </section>
 
-    <section className="experience-section" aria-labelledby="experience-heading">
-      <h2 id="experience-heading" className="section-title">Experiencia Laboral</h2>
-      <div className="accordion-list">
+    <section class="impact-section" aria-labelledby="impact-heading">
+      <h2 id="impact-heading" class="section-title">Impacto Cuantitativo & Métricas Clave</h2>
+      <ImpactGrid client:visible />
+    </section>
+
+    <section class="experience-section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="section-title">Experiencia Laboral</h2>
+      <div class="accordion-list">
         {
           experienceData.map((item) => (
             <CVAccordion
@@ -90,7 +96,7 @@ const experienceData = [
 
 <style>
   .main-content {
-    padding: var(--space-8) 0;
+    padding: var(--space-8) 0 var(--space-8) 0;
   }
 
   .hero-section {
@@ -99,28 +105,41 @@ const experienceData = [
   }
 
   .hero-title {
-    font-size: 2.25rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    font-weight: 800;
     color: var(--text-ink);
-    margin-bottom: var(--space-2);
+    margin-bottom: 1rem;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
 
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: clamp(1.1rem, 2vw + 0.5rem, 1.35rem);
     color: var(--accent);
     margin: 0;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    opacity: 0.9;
+  }
+
+  .impact-section {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
   }
 
   .experience-section {
-    margin-top: var(--space-6);
+    margin-top: 0;
+    margin-bottom: 4rem;
   }
 
   .section-title {
-    font-size: 1.5rem;
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.25rem);
+    font-weight: 700;
     color: var(--text-ink);
-    margin-bottom: var(--space-6);
+    margin-bottom: 2rem;
     border-bottom: 2px solid var(--border-hairline);
-    padding-bottom: var(--space-2);
+    padding-bottom: 1rem;
+    letter-spacing: -0.02em;
   }
 
   .accordion-list {
