@@ -3,6 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import CVAccordion from '../components/CVAccordion';
 import ImpactGrid from '../components/ImpactGrid';
 import { ExperienceTabs } from '../components/ExperienceTabs';
+import TechMarquee from '../components/TechMarquee.astro';
+import CredentialsBentoBox from '../components/CredentialsBentoBox.astro';
 
 const avalExperience = [
   {
@@ -106,6 +108,14 @@ const experienceData = [
         }
       </div>
     </section>
+
+    <section class="credentials-section" aria-labelledby="credentials-heading">
+      <h2 id="credentials-heading" class="section-title">Stack Tecnológico y Credenciales</h2>
+      <TechMarquee />
+      <div class="mt-8">
+        <CredentialsBentoBox />
+      </div>
+    </section>
   </main>
 </Layout>
 
@@ -143,6 +153,11 @@ const experienceData = [
   }
 
   .experience-section {
+    margin-top: 0;
+    margin-bottom: 4rem;
+  }
+
+  .credentials-section {
     margin-top: 0;
     margin-bottom: 4rem;
   }
