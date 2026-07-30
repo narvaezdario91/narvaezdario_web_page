@@ -3,35 +3,110 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Sandbox IA | Darío Narváez">
-  <main class="sandbox-container">
-    <section class="placeholder-section">
-      <h1>Sandbox de IA</h1>
-      <p>Espacio experimental para Inteligencia Artificial. Próximamente.</p>
-    </section>
+  <main class="sandbox-container layout-container">
+    <div class="terminal-window">
+      <div class="terminal-header">
+        <span class="dot close"></span>
+        <span class="dot minimize"></span>
+        <span class="dot expand"></span>
+      </div>
+      <div class="terminal-body">
+        <p class="typewriter-text">Entrenando modelos de recomendación - Fase 1.1...</p>
+      </div>
+    </div>
   </main>
 </Layout>
 
 <style>
   .sandbox-container {
-    padding: var(--space-6) 0;
+    padding: var(--space-8) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
   }
 
-  .placeholder-section {
-    text-align: center;
-    padding: var(--space-8) var(--space-4);
+  .terminal-window {
+    width: 100%;
+    max-width: 600px;
     background-color: var(--surface-raised);
-    border-radius: 12px;
-    border: 1px dashed var(--border-subtle);
+    border-radius: 8px;
+    border: 1px solid var(--border-hairline);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
 
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: var(--space-4);
-    color: var(--text-ink);
+  .terminal-header {
+    background-color: var(--surface-base);
+    padding: var(--space-2) var(--space-3);
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-hairline);
   }
 
-  p {
-    font-size: 1.125rem;
-    color: var(--text-muted);
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+  }
+
+  .close {
+    background-color: #ff5f56;
+  }
+  .minimize {
+    background-color: #ffbd2e;
+  }
+  .expand {
+    background-color: #27c93f;
+  }
+
+  .terminal-body {
+    padding: var(--space-6);
+    min-height: 200px;
+    font-family: var(--font-mono);
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .typewriter-text {
+    color: var(--accent);
+    font-size: 1rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--accent);
+    width: 49ch;
+    animation:
+      typing 3s steps(49, end),
+      blink-caret 0.8s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 49ch;
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: var(--accent);
+    }
+  }
+
+  @media (max-width: 500px) {
+    .typewriter-text {
+      font-size: 0.75rem;
+    }
+    .terminal-body {
+      padding: var(--space-4);
+      min-height: 150px;
+    }
   }
 </style>
