@@ -41,7 +41,7 @@
 # - Retrospective appends its action items to action_items; sprint-status surfaces open ones
 
 generated: '2026-07-26'
-last_updated: '2026-07-29'
+last_updated: '2026-07-30'
 project: 'narvaezdario_web_page'
 project_key: 'NOKEY'
 tracking_system: 'file-system'
@@ -61,8 +61,8 @@ development_status:
   1-5-3-componente-avanzado-de-experiencia-tabs-por-equipos: done
   1-5-4-grid-de-credenciales-bento-box-y-tech-marquee: done
   epic-1-5-retrospective: optional
-  epic-2: backlog
-  2-1-configuracion-de-colecciones-de-contenido-content-collections: backlog
+  epic-2: in-progress
+  2-1-configuracion-de-colecciones-de-contenido-content-collections: done
   2-2-listado-y-componente-de-tarjeta-de-articulo-feed-del-blog: backlog
   2-3-filtrado-de-articulos-por-categorias-y-etiquetas: backlog
   2-4-lectura-de-articulo-individual-renderizado-markdown-mdx: backlog
