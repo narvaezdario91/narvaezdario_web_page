@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sandbox IA | Darío Narváez">
+  <main class="sandbox-container">
+    <section class="placeholder-section">
+      <h1>Sandbox de IA</h1>
+      <p>Espacio experimental para Inteligencia Artificial. Próximamente.</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .sandbox-container {
+    padding: var(--space-6) 0;
+  }
+
+  .placeholder-section {
+    text-align: center;
+    padding: var(--space-8) var(--space-4);
+    background-color: var(--surface-raised);
+    border-radius: 12px;
+    border: 1px dashed var(--border-subtle);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--space-4);
+    color: var(--text-ink);
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+  }
+</style>
