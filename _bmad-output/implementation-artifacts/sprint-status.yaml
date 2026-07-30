@@ -64,7 +64,7 @@ development_status:
   epic-2: in-progress
   2-1-configuracion-de-colecciones-de-contenido-content-collections: done
   2-2-listado-y-componente-de-tarjeta-de-articulo-feed-del-blog: done
-  2-3-filtrado-de-articulos-por-categorias-y-etiquetas: backlog
+  2-3-filtrado-de-articulos-por-categorias-y-etiquetas: done
   2-4-lectura-de-articulo-individual-renderizado-markdown-mdx: backlog
   epic-2-retrospective: optional
   epic-3: backlog

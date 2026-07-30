@@ -15,34 +15,36 @@ const formattedDate = new Intl.DateTimeFormat('es-ES', {
   month: 'long',
   day: 'numeric'
 }).format(date);
+
+const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<a 
-  href={`${import.meta.env.BASE_URL}/blog/${slug}`} 
-  class="block group w-full outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg transition-transform duration-200 active:scale-[0.98]"
->
-  <article class="bg-surface-raised border border-border-hairline rounded-lg p-6 h-full flex flex-col transition-colors duration-200 group-hover:border-accent">
+<article class="group relative bg-surface-raised border border-border-hairline rounded-lg p-6 h-full flex flex-col transition-transform duration-200 active:scale-[0.98] hover:border-accent focus-within:ring-2 focus-within:ring-accent">
     
     <div class="mb-4">
       <h3 class="font-sans font-semibold text-xl mb-2 text-text-ink group-hover:text-accent transition-colors duration-200">
-        {title}
+        <a href={`${baseUrl}/blog/${slug}`} class="outline-none before:absolute before:inset-0 before:z-0">
+          {title}
+        </a>
       </h3>
       <time datetime={date.toISOString()} class="font-mono text-sm text-text-ink opacity-70">
         {formattedDate}
       </time>
     </div>
     
-    <p class="font-sans text-text-ink opacity-80 mb-6 line-clamp-3 flex-grow">
+    <p class="font-sans text-text-ink opacity-80 mb-6 line-clamp-3 flex-grow relative z-10">
       {excerpt}
     </p>
     
-    <div class="mt-auto flex flex-wrap gap-2">
+    <div class="mt-auto flex flex-wrap gap-2 relative z-10">
       {tags.map((tag) => (
-        <span class="bg-surface-base font-mono text-xs px-2 py-1 rounded text-text-ink border border-border-hairline opacity-90 group-hover:opacity-100 transition-opacity">
+        <a 
+          href={`${baseUrl}/blog/tag/${encodeURIComponent(tag)}`} 
+          class="bg-surface-base font-mono text-xs px-2 py-1 rounded text-text-ink border border-border-hairline opacity-90 hover:opacity-100 hover:border-accent transition-all outline-none focus-visible:ring-2 focus-visible:ring-accent active:scale-95"
+        >
           #{tag}
-        </span>
+        </a>
       ))}
     </div>
     
   </article>
-</a>
