@@ -4,16 +4,16 @@
 
 <header class="header">
   <div class="header-container">
-    <a href="/" class="brand" aria-label="Ir al inicio">
+    <a href={import.meta.env.BASE_URL} class="brand" aria-label="Ir al inicio">
       <span class="brand-prefix">&gt;</span>
       <span class="brand-name">dn.dev</span>
     </a>
 
     <nav class="nav" aria-label="Navegación principal">
       <ul class="nav-list">
-        <li><a href="/" class="nav-link">Inicio</a></li>
-        <li><a href="/blog" class="nav-link">Blog</a></li>
-        <li><a href="/sandbox" class="nav-link">Sandbox</a></li>
+        <li><a href={import.meta.env.BASE_URL} class="nav-link">Inicio</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}/blog`} class="nav-link">Blog</a></li>
+        <li><a href={`${import.meta.env.BASE_URL}/sandbox`} class="nav-link">Sandbox</a></li>
       </ul>
     </nav>
 
@@ -65,7 +65,7 @@
         </svg>
       </a>
 
-      <a href="/cv.pdf" download="CV_Dario_Narvaez.pdf" class="btn-cv">Descargar CV</a>
+      <a href={`${import.meta.env.BASE_URL}/cv.pdf`} download="CV_Dario_Narvaez.pdf" class="btn-cv">Descargar CV</a>
     </div>
   </div>
 </header>

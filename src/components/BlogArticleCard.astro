@@ -1,0 +1,48 @@
+---
+interface Props {
+  title: string;
+  excerpt: string;
+  date: Date;
+  tags: string[];
+  slug: string;
+}
+
+const { title, excerpt, date, tags, slug } = Astro.props;
+
+// Format the date using Intl.DateTimeFormat
+const formattedDate = new Intl.DateTimeFormat('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}).format(date);
+---
+
+<a 
+  href={`${import.meta.env.BASE_URL}/blog/${slug}`} 
+  class="block group w-full outline-none focus-visible:ring-2 focus-visible:ring-accent rounded-lg transition-transform duration-200 active:scale-[0.98]"
+>
+  <article class="bg-surface-raised border border-border-hairline rounded-lg p-6 h-full flex flex-col transition-colors duration-200 group-hover:border-accent">
+    
+    <div class="mb-4">
+      <h3 class="font-sans font-semibold text-xl mb-2 text-text-ink group-hover:text-accent transition-colors duration-200">
+        {title}
+      </h3>
+      <time datetime={date.toISOString()} class="font-mono text-sm text-text-ink opacity-70">
+        {formattedDate}
+      </time>
+    </div>
+    
+    <p class="font-sans text-text-ink opacity-80 mb-6 line-clamp-3 flex-grow">
+      {excerpt}
+    </p>
+    
+    <div class="mt-auto flex flex-wrap gap-2">
+      {tags.map((tag) => (
+        <span class="bg-surface-base font-mono text-xs px-2 py-1 rounded text-text-ink border border-border-hairline opacity-90 group-hover:opacity-100 transition-opacity">
+          #{tag}
+        </span>
+      ))}
+    </div>
+    
+  </article>
+</a>

@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import BlogArticleCard from '../../components/BlogArticleCard.astro';
+
+// Obtener todos los posts del blog y ordenarlos por fecha descendente
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout title="Blog - Darío Narváez">
+  <main class="py-12 md:py-16">
+    <header class="mb-10 md:mb-16 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 font-sans text-text-ink">Blog Técnico</h1>
+      <p class="text-lg opacity-80 max-w-2xl mx-auto font-sans text-text-ink">
+        Explora mis artículos sobre desarrollo web, arquitectura de software y mejores prácticas.
+      </p>
+    </header>
+
+    <section aria-label="Lista de artículos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedPosts.length > 0 ? (
+        sortedPosts.map((post) => (
+          <BlogArticleCard
+            title={post.data.title}
+            excerpt={post.data.excerpt}
+            date={post.data.date}
+            tags={post.data.tags}
+            slug={post.id}
+          />
+        ))
+      ) : (
+        <p class="col-span-full text-center text-text-ink opacity-70 italic">
+          No hay artículos publicados todavía.
+        </p>
+      )}
+    </section>
+  </main>
+</Layout>
