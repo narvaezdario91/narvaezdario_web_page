@@ -1,6 +1,7 @@
 ---
 baseline_commit: HEAD
 ---
+
 # Story 2.4: Lectura de Artículo Individual (Renderizado Markdown/MDX)
 
 Status: done
@@ -35,26 +36,31 @@ So that pueda leer el contenido completo con el formato adecuado, especialmente 
 ## Developer Context & Guardrails
 
 ### Technical Requirements
+
 - **Framework:** Astro 4.x/5.x
 - **Data Source:** `src/content/blog/` y `getCollection('blog')`.
 - **Dynamic Routing:** `getStaticPaths` en `[slug].astro` de acuerdo con la documentación de Astro sobre Content Collections para renderizar el post y sus slugs.
 - **Styling:** Astro provee soporte built-in para Markdown. Configurar el tema de sintaxis de código (ej. Shiki) en `astro.config.mjs` asegurando cumplir la directriz de accesibilidad y el esquema de color oscuro Midnight Cobalt (e.g. un tema como `github-dark` o `dracula` suele cumplir los ratios de contraste).
 
 ### Architecture Compliance
+
 - **AD-1 (Manejo de Estilos):** Usa la configuración de Tailwind (ej. `@tailwindcss/typography` si está instalado, o clases directas si se crea un wrapper) y/o CSS variables para el contenido en Markdown.
 - **AD-2 (Interactividad):** La página es puramente estática. NO usar React para renderizar el contenido del post, la hidratación aquí no es necesaria.
 - **AD-3 (Capa de Datos):** Astro Content Collections. Se llama a `entry.render()` para extraer y renderizar el componente `<Content />`.
 
 ### File Structure Requirements
+
 - `src/pages/blog/[slug].astro` (NEW) - Renderiza el post individual.
 - `src/layouts/Layout.astro` (UPDATE - opcional) - O crear un layout específico para artículos (ej. `src/layouts/BlogPostLayout.astro`) para aplicar márgenes legibles de lectura (ej. max-width más angosto).
 - `astro.config.mjs` (UPDATE) - Si es necesario ajustar el soporte de Markdown o el tema de syntax highlighting de Shiki.
 
 ### Previous Story Intelligence
+
 - **From Story 2.3 & 2.2:** La navegación del blog (index) y el filtrado por tags ya funcionan estáticamente. La estructura y los esquemas de Content Collections están validados con Zod.
 - **From Git History:** Se corrigieron problemas de anidamiento de enlaces en tarjetas previas y overflow. Mantén en cuenta el diseño responsive.
 
 ### Testing Requirements
+
 - Confirmar que al navegar desde el feed a un artículo individual se renderiza el contenido sin errores (HTTP 200).
 - Ejecutar validación de accesibilidad (Lighthouse / axe) para asegurar que el contraste de sintaxis es superior a 4.5:1.
 - Verificar el comportamiento mobile de los bloques de código (overflow-x) para que no rompan el layout ni extiendan el ancho de la página.
@@ -79,9 +85,11 @@ So that pueda leer el contenido completo con el formato adecuado, especialmente 
 ## Dev Agent Record
 
 ### Debug Log
+
 - N/A
 
 ### Completion Notes
+
 - Implementación completada de `[slug].astro` mediante `getStaticPaths` extraído desde `getCollection('blog')`.
 - Integración de `<Content />` con estilos prose personalizados de Tailwind Typography compatibles con modo claro y Midnight Cobalt (dark mode).
 - Bloques de código configurados usando el tema Shiki "dracula" asegurando un alto contraste, junto con soporte horizontal de overflow.

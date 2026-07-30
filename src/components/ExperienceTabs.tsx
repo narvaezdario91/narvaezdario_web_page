@@ -14,47 +14,52 @@ interface ExperienceTabsProps {
 
 export const ExperienceTabs: React.FC<ExperienceTabsProps> = ({ data }) => {
   return (
-    <div className="bg-surface-raised rounded-xl p-6 md:p-8 shadow-sm border border-border-hairline transition-all duration-300 hover:border-accent">
+    <div className="rounded-xl border border-border-hairline bg-surface-raised p-6 shadow-sm transition-all duration-300 hover:border-accent md:p-8">
       <div className="mb-6 md:mb-8">
-        <h3 className="text-2xl font-bold text-text-ink tracking-tight">AVAL DIGITAL LABS (ADL)</h3>
-        <p className="text-sm font-mono text-text-ink opacity-80 mt-2">06/2021 – 03/2026 <span className="mx-2 text-accent opacity-50">•</span> QA Automation Senior | AI Engineer</p>
-        <p className="text-sm text-text-ink opacity-90 mt-4 leading-relaxed max-w-3xl">
-          Profesional Senior enfocado en la aplicación de Inteligencia Artificial, automatización y arquitectura de pruebas para transformar procesos de ingeniería de software.
+        <h3 className="text-2xl font-bold tracking-tight text-text-ink">AVAL DIGITAL LABS (ADL)</h3>
+        <p className="mt-2 font-mono text-sm text-text-ink opacity-80">
+          06/2021 – 03/2026 <span className="mx-2 text-accent opacity-50">•</span> QA Automation
+          Senior | AI Engineer
+        </p>
+        <p className="mt-4 max-w-3xl text-sm leading-relaxed text-text-ink opacity-90">
+          Profesional Senior enfocado en la aplicación de Inteligencia Artificial, automatización y
+          arquitectura de pruebas para transformar procesos de ingeniería de software.
         </p>
       </div>
-      
-      <Tabs.Root defaultValue={data[0]?.id || ''} className="flex flex-col md:flex-row gap-6 md:gap-10">
-        <Tabs.List 
-          className="flex md:flex-col gap-2 overflow-x-auto pb-2 md:pb-0 md:min-w-[220px] border-b md:border-b-0 md:border-r border-border-hairline"
+
+      <Tabs.Root
+        defaultValue={data[0]?.id || ''}
+        className="flex flex-col gap-6 md:flex-row md:gap-10"
+      >
+        <Tabs.List
+          className="flex gap-2 overflow-x-auto border-b border-border-hairline pb-2 md:min-w-[220px] md:flex-col md:border-b-0 md:border-r md:pb-0"
           aria-label="Equipos de experiencia en AVAL"
         >
           {data.map((exp) => (
             <Tabs.Trigger
               key={exp.id}
               value={exp.id}
-              className="text-left px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 text-text-ink opacity-70 hover:opacity-100 data-[state=active]:opacity-100 data-[state=active]:bg-surface-base data-[state=active]:text-accent data-[state=active]:shadow-[inset_4px_0_0_0_theme(colors.accent)] outline-none focus-visible:ring-2 focus-visible:ring-accent whitespace-nowrap md:whitespace-normal"
+              className="whitespace-nowrap rounded-lg px-4 py-3 text-left text-sm font-medium text-text-ink opacity-70 outline-none transition-all duration-200 hover:opacity-100 focus-visible:ring-2 focus-visible:ring-accent data-[state=active]:bg-surface-base data-[state=active]:text-accent data-[state=active]:opacity-100 data-[state=active]:shadow-[inset_4px_0_0_0_theme(colors.accent)] md:whitespace-normal"
             >
               {exp.team}
             </Tabs.Trigger>
           ))}
         </Tabs.List>
 
-        <div className="flex-1 min-h-[220px]">
+        <div className="min-h-[220px] flex-1">
           {data.map((exp) => (
-            <Tabs.Content 
-              key={exp.id} 
-              value={exp.id} 
-              className="outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised rounded-md transition-all data-[state=inactive]:hidden data-[state=active]:animate-in data-[state=active]:fade-in-50 data-[state=active]:slide-in-from-bottom-2 duration-300"
+            <Tabs.Content
+              key={exp.id}
+              value={exp.id}
+              className="rounded-md outline-none transition-all duration-300 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-surface-raised data-[state=inactive]:hidden data-[state=active]:animate-in data-[state=active]:fade-in-50 data-[state=active]:slide-in-from-bottom-2"
             >
-              <div className="flex flex-col gap-3 mb-5">
+              <div className="mb-5 flex flex-col gap-3">
                 <h4 className="text-xl font-bold text-text-ink">{exp.team}</h4>
-                <span className="text-xs font-mono text-accent bg-surface-base border border-border-hairline px-3 py-1.5 rounded-full w-fit">
+                <span className="w-fit rounded-full border border-border-hairline bg-surface-base px-3 py-1.5 font-mono text-xs text-accent">
                   {exp.role}
                 </span>
               </div>
-              <p className="text-xs leading-relaxed text-text-ink opacity-90">
-                {exp.description}
-              </p>
+              <p className="text-xs leading-relaxed text-text-ink opacity-90">{exp.description}</p>
             </Tabs.Content>
           ))}
         </div>

@@ -1,6 +1,7 @@
 ---
 baseline_commit: 2bc705acf6a0f773f113716644a4b21133115411
 ---
+
 # Story 2.1: Configuración de Colecciones de Contenido (Content Collections)
 
 Status: done

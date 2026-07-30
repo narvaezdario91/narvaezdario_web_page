@@ -1,32 +1,86 @@
 ---
 const techStack = [
-  "IA", "Langchain", "Langgraph", "AutoGen", "N8N", "OpenAI", "Claude", 
-  "Bedrock", "SLMs", "Spec-Driven Development", "Kiro", "Antigravity", 
-  "Open Spec", "Java", "Python", "TypeScript", "Groovy", "JavaScript", 
-  "C++", "PLSQL", "SOAP UI", "jMeter", "Postman", "Insomnia", "K6", 
-  "Playwright", "Selenium", "Cypress", "RestAssured", "Serenity BDD", 
-  "AWS", "Git", "Bitbucket", "GitHub", "Jira", "Jenkins", "Docker", 
-  "Oracle DB", "SQL Server", "MySQL", "NoSQL"
+  'IA',
+  'Langchain',
+  'Langgraph',
+  'AutoGen',
+  'N8N',
+  'OpenAI',
+  'Claude',
+  'Bedrock',
+  'SLMs',
+  'Spec-Driven Development',
+  'Kiro',
+  'Antigravity',
+  'Open Spec',
+  'Java',
+  'Python',
+  'TypeScript',
+  'Groovy',
+  'JavaScript',
+  'C++',
+  'PLSQL',
+  'SOAP UI',
+  'jMeter',
+  'Postman',
+  'Insomnia',
+  'K6',
+  'Playwright',
+  'Selenium',
+  'Cypress',
+  'RestAssured',
+  'Serenity BDD',
+  'AWS',
+  'Git',
+  'Bitbucket',
+  'GitHub',
+  'Jira',
+  'Jenkins',
+  'Docker',
+  'Oracle DB',
+  'SQL Server',
+  'MySQL',
+  'NoSQL',
 ];
 ---
 
 {/* Patch F-03: hover pause moved to outer wrapper so it covers the full clickable area */}
-{/* Patch F-02: second div hidden with motion-reduce:hidden so reduced-motion users see a clean single list */}
+{
+  /* Patch F-02: second div hidden with motion-reduce:hidden so reduced-motion users see a clean single list */
+}
 <div
-  class="w-full overflow-hidden flex whitespace-nowrap bg-[var(--surface-raised)] py-4 border-y border-[var(--border-hairline)] hover:[&_.marquee-track]:[animation-play-state:paused]"
+  class="flex w-full overflow-hidden whitespace-nowrap border-y border-[var(--border-hairline)] bg-[var(--surface-raised)] py-4 hover:[&_.marquee-track]:[animation-play-state:paused]"
   role="region"
   aria-label="Stack Tecnológico"
 >
   {/* Patch F-04: role="list" + role="listitem" for screen reader coherence */}
-  <ul class="marquee-track flex animate-marquee motion-reduce:animate-none list-none m-0 p-0" role="list">
-    {techStack.map((tech) => (
-      <li class="mx-6 text-xs font-mono font-medium text-[var(--text-ink)] opacity-80 uppercase tracking-wider" role="listitem">{tech}</li>
-    ))}
+  <ul
+    class="marquee-track m-0 flex animate-marquee list-none p-0 motion-reduce:animate-none"
+    role="list"
+  >
+    {
+      techStack.map((tech) => (
+        <li
+          class="mx-6 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-ink)] opacity-80"
+          role="listitem"
+        >
+          {tech}
+        </li>
+      ))
+    }
   </ul>
   {/* Patch F-02: hidden on reduced-motion so duplicate content never renders for those users */}
-  <ul class="marquee-track flex animate-marquee motion-reduce:hidden list-none m-0 p-0" aria-hidden="true" role="presentation">
-    {techStack.map((tech) => (
-      <li class="mx-6 text-xs font-mono font-medium text-[var(--text-ink)] opacity-80 uppercase tracking-wider">{tech}</li>
-    ))}
+  <ul
+    class="marquee-track m-0 flex animate-marquee list-none p-0 motion-reduce:hidden"
+    aria-hidden="true"
+    role="presentation"
+  >
+    {
+      techStack.map((tech) => (
+        <li class="mx-6 font-mono text-xs font-medium uppercase tracking-wider text-[var(--text-ink)] opacity-80">
+          {tech}
+        </li>
+      ))
+    }
   </ul>
 </div>

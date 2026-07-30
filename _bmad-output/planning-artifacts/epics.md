@@ -168,6 +168,7 @@ I want un sistema de diseño consistente utilizando Tailwind CSS,
 So that los componentes complejos (gráficos, pestañas) tengan una apariencia ultra-premium alineada a 'Midnight Cobalt'.
 
 **Acceptance Criteria:**
+
 - Tailwind CSS debe estar configurado en el proyecto Astro.
 - Los tokens 'Midnight Cobalt' deben mapearse a las variables de Tailwind.
 - El proyecto debe compilar sin errores en el pipeline de CI/CD.
@@ -179,6 +180,7 @@ I want ver gráficos de datos,
 So that el impacto cuantitativo del candidato (3 años a 1 año, 9 a 190, 4h a 5m, 100% agnosticismo) sea inmediatamente evidente.
 
 **Acceptance Criteria:**
+
 - Implementar gráficos usando Recharts o SVG para las métricas de impacto.
 - Los gráficos deben ser responsivos y accesibles.
 
@@ -189,6 +191,7 @@ I want navegar la experiencia en AVAL DIGITAL LABS por equipos,
 So that pueda diferenciar el impacto como QA Senior del impacto como AI Engineer.
 
 **Acceptance Criteria:**
+
 - La tarjeta de AVAL debe contener pestañas internas (Tabs) usando Radix UI o similar.
 - Debe tener secciones separadas para Re:Act, AV Villas/Occidente, Servicios Compartidos, y Transversal.
 - Tarjetas separadas para el resto del historial laboral.
@@ -200,6 +203,7 @@ I want ver de un vistazo el stack técnico y certificaciones formales,
 So that pueda hacer check de los requisitos del cargo.
 
 **Acceptance Criteria:**
+
 - Un Marquee infinito horizontal con las herramientas técnicas.
 - Un layout Bento Box listando las 8 certificaciones (AWS/ISTQB/Scrum) y la maestría/publicaciones.
 

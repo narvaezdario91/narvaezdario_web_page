@@ -1,6 +1,7 @@
 ---
 baseline_commit: 2a3bde914f3c3da040f2575b32801a3491ef64c8
 ---
+
 # Story 1.4: Pipeline CI/CD con GitHub Actions
 
 Status: done
@@ -92,11 +93,13 @@ so that siempre pueda acceder a la versión más reciente del portafolio sin int
 ## Dev Agent Record
 
 ### Agent Model Used
+
 Gemini 3.1 Pro (High)
 
 ### Debug Log References
 
 ### Completion Notes List
+
 - Configurado archivo `deploy.yml` para GitHub Actions.
 - Workflow configurado para trigger en pushes a `main`, `master` y `develop`, y `workflow_dispatch`.
 - Se añadieron permisos para pages, contents e id-token.
@@ -107,4 +110,5 @@ Gemini 3.1 Pro (High)
 - Validado linting y build exitoso de manera local.
 
 ### File List
+
 - `.github/workflows/deploy.yml`

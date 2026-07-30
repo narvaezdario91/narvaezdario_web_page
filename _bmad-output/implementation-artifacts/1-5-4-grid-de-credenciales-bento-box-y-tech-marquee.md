@@ -1,6 +1,7 @@
 ---
 baseline_commit: ab25d5a3dd7ad793fba8355f34202b6e5e134ae1
 ---
+
 # Story 1.5.4: Grid de Credenciales (Bento Box) y Tech Marquee
 
 Status: done
@@ -38,7 +39,7 @@ so that pueda hacer check de los requisitos del cargo.
 
 ## Dev Notes
 
-- **Relevant architecture patterns and constraints**: 
+- **Relevant architecture patterns and constraints**:
   - Usar componentes de Astro puros siempre que sea posible, ya que la animación puede manejarse completamente mediante CSS y CSS Grid.
   - El diseño visual debe utilizar las utilidades de Tailwind en conjunto con los tokens de color (ej. `var(--surface-raised)`, `var(--accent)`).
 - **Source tree components to touch**:

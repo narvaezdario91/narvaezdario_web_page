@@ -5,18 +5,16 @@ import BlogArticleCard from '../../../components/BlogArticleCard.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  
+
   // Extract all unique tags
   const uniqueTags = [...new Set(posts.map((post) => post.data.tags).flat())];
-  
+
   return uniqueTags.map((tag) => {
     // Filter posts for the current tag
-    const filteredPosts = posts.filter((post) => 
-      post.data.tags.includes(tag)
-    ).sort(
-      (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-    );
-    
+    const filteredPosts = posts
+      .filter((post) => post.data.tags.includes(tag))
+      .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
     return {
       params: { tag },
       props: { posts: filteredPosts },
@@ -30,41 +28,61 @@ const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL
 ---
 
 <Layout title={`Artículos sobre #${tag} - Darío Narváez`}>
-  <main class="py-12 md:py-16 px-4 md:px-0 max-w-7xl mx-auto">
+  <main class="mx-auto max-w-7xl px-4 py-12 md:px-0 md:py-16">
     <div class="mb-8">
-      <a href={`${baseUrl}/blog`} class="text-accent hover:underline inline-flex items-center gap-2 outline-none focus-visible:ring-2 focus-visible:ring-accent rounded transition-all">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <a
+        href={`${baseUrl}/blog`}
+        class="inline-flex items-center gap-2 rounded text-accent outline-none transition-all hover:underline focus-visible:ring-2 focus-visible:ring-accent"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </svg>
         Volver al Blog
       </a>
     </div>
-    <header class="mb-10 md:mb-16 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 font-sans text-text-ink">
+    <header class="mb-10 text-center md:mb-16">
+      <h1 class="mb-4 font-sans text-4xl font-bold text-text-ink md:text-5xl">
         Publicaciones: <span class="text-accent">#{tag}</span>
       </h1>
-      <p class="text-lg opacity-80 max-w-2xl mx-auto font-sans text-text-ink">
-        Mostrando {posts.length} artículo{posts.length === 1 ? '' : 's'} relacionado{posts.length === 1 ? '' : 's'} a esta etiqueta.
+      <p class="mx-auto max-w-2xl font-sans text-lg text-text-ink opacity-80">
+        Mostrando {posts.length} artículo{posts.length === 1 ? '' : 's'} relacionado{
+          posts.length === 1 ? '' : 's'
+        } a esta etiqueta.
       </p>
     </header>
 
-    <section aria-label={`Lista de artículos para ${tag}`} class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {posts.length > 0 ? (
-        posts.map((post) => (
-          <BlogArticleCard
-            title={post.data.title}
-            excerpt={post.data.excerpt}
-            date={post.data.date}
-            tags={post.data.tags}
-            slug={post.id}
-          />
-        ))
-      ) : (
-        <p class="col-span-full text-center text-text-ink opacity-70 italic">
-          No hay artículos con esta etiqueta todavía.
-        </p>
-      )}
+    <section
+      aria-label={`Lista de artículos para ${tag}`}
+      class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+    >
+      {
+        posts.length > 0 ? (
+          posts.map((post) => (
+            <BlogArticleCard
+              title={post.data.title}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              tags={post.data.tags}
+              slug={post.id}
+            />
+          ))
+        ) : (
+          <p class="col-span-full text-center italic text-text-ink opacity-70">
+            No hay artículos con esta etiqueta todavía.
+          </p>
+        )
+      }
     </section>
   </main>
 </Layout>

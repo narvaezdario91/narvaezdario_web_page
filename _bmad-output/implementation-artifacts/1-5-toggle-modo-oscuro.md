@@ -1,6 +1,7 @@
 ---
 baseline_commit: d08339d4267059b30c05035dde9fba669a2e4d78
 ---
+
 # Story 1.5: Toggle de Modo Oscuro (Vainilla)
 
 Status: done
@@ -16,7 +17,7 @@ so that pueda leer el contenido cómodamente según mi preferencia visual o ento
 1. **Given** que el usuario visita el portafolio
    **When** hace clic en el botón de alternancia de tema en la navegación (sticky-header)
    **Then** el tema de la página debe cambiar de claro a oscuro (o viceversa).
-   
+
 2. **Given** que el usuario cambia el tema
    **When** recarga la página o navega a otra sección
    **Then** su preferencia de tema debe ser recordada (persistencia mediante `localStorage`).
@@ -63,11 +64,13 @@ so that pueda leer el contenido cómodamente según mi preferencia visual o ento
 ## Dev Agent Record
 
 ### Agent Model Used
+
 Gemini 3.1 Pro (High)
 
 ### Debug Log References
 
 ### Completion Notes List
+
 - Añadidos `transition` en `global.css` para suavizar el cambio de colores del modo oscuro/claro.
 - Removido `data-theme="dark"` estático y agregado script inline preventor de FOUC en `Layout.astro`.
 - Integrado el botón de Toggle nativo SVG (`#theme-toggle`) en `Header.astro` manejado sin framework.
@@ -75,11 +78,13 @@ Gemini 3.1 Pro (High)
 - Validado mediante `npm run build` y `npm run lint`.
 
 ### File List
+
 - `src/styles/global.css`
 - `src/layouts/Layout.astro`
 - `src/components/Header.astro`
 
 ### Review Findings
+
 - [x] [Review][Patch] Manejo de excepciones en localStorage faltante [`src/components/ThemeScript.astro`:19]
 - [x] [Review][Patch] Añadir `type="button"` al botón de toggle [`src/components/Header.astro`:21]
 - [x] [Review][Patch] Refactorizar SVG y `display` quitando `!important` [`src/components/Header.astro`:23]

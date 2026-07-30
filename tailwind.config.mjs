@@ -17,7 +17,7 @@ export default {
         },
         text: {
           ink: 'var(--text-ink)',
-        }
+        },
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],
@@ -30,11 +30,11 @@ export default {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' },
-        }
+        },
       },
       animation: {
         marquee: 'marquee 50s linear infinite',
-      }
+      },
     },
   },
   plugins: [tailwindcssAnimate, typography],

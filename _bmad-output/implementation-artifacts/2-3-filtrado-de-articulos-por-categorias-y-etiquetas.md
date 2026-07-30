@@ -1,6 +1,7 @@
 ---
 baseline_commit: HEAD
 ---
+
 # Story 2.3: Filtrado de Artículos por Categorías y Etiquetas
 
 Status: done
@@ -36,25 +37,30 @@ so that pueda ver únicamente los artículos relacionados a ese tema sin recarga
 ## Developer Context & Guardrails
 
 ### Technical Requirements
+
 - **Framework:** Astro 4.x/5.x
 - **Data Source:** Fetch posts from `src/content/blog/` using `getCollection('blog')`.
 - **Styling:** Tailwind CSS para layouts y botones (estilos Midnight Cobalt).
 - **Dynamic Routing:** Utilizar rutas dinámicas (`[tag].astro`) y `getStaticPaths()` para SSG (Static Site Generation). Esto asegura "0 JavaScript extra" (FR).
 
 ### Architecture Compliance
+
 - **AD-1 (Manejo de Estilos):** Utilizar Tailwind CSS como motor principal.
 - **AD-2 (Interactividad):** La navegación y filtrado deben realizarse estáticamente mediante enrutamiento de páginas, sin requerir client-side JavaScript.
 - **AD-3 (Capa de Datos):** Extraer categorías/etiquetas iterando sobre los artículos obtenidos de Astro Content Collections.
 
 ### Previous Story Intelligence
+
 - **From Story 2.2:** La página `/blog` (index) y el componente `BlogArticleCard.astro` fueron implementados.
 - El componente `BlogArticleCard.astro` puede/debe ser reutilizado en la vista de resultados por etiqueta.
 
 ### File Structure Requirements
+
 - `src/pages/blog/tag/[tag].astro` (NUEVO) - Ruta dinámica para listar posts por etiqueta.
-- `src/components/BlogArticleCard.astro` (UPDATE) - Modificar para que los tags sean enlaces cliqueables (`<a>` apuntando a `/blog/tag/[tag]`), o asegurar que lo sean si ya lo son (sin romper estilos de card). *Cuidado*: Evitar enlaces anidados (nested `<a>` tags) si la tarjeta entera ya es un enlace en HTML. Considera el uso de `z-index` y posicionamiento, o separar el link del tag del link de la tarjeta.
+- `src/components/BlogArticleCard.astro` (UPDATE) - Modificar para que los tags sean enlaces cliqueables (`<a>` apuntando a `/blog/tag/[tag]`), o asegurar que lo sean si ya lo son (sin romper estilos de card). _Cuidado_: Evitar enlaces anidados (nested `<a>` tags) si la tarjeta entera ya es un enlace en HTML. Considera el uso de `z-index` y posicionamiento, o separar el link del tag del link de la tarjeta.
 
 ### Testing Requirements
+
 - Confirmar que la ruta `/blog/tag/nombre-de-etiqueta` se genera estáticamente.
 - Al hacer clic en un tag desde una tarjeta, debe enrutar correctamente a su página.
 - Validar contraste de accesibilidad en los textos (WCAG 4.5:1) y HTML semántico (evitar nested links).
@@ -78,8 +84,10 @@ so that pueda ver únicamente los artículos relacionados a ese tema sin recarga
 ## Dev Agent Record
 
 ### Agent Model Used
+
 Gemini 3.1 Pro (High)
 
 ### Completion Notes List
+
 - Ultimate context engine analysis completed - comprehensive developer guide created.
 - [x] Tareas 1-4 completadas: Ruta dinámica generada en src/pages/blog/tag/[tag].astro con getStaticPaths y visualización reutilizando BlogArticleCard. Tarjeta actualizada para evitar anclajes anidados e incluir hover states en tags cliqueables.

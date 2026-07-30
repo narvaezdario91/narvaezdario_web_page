@@ -1,6 +1,7 @@
 ---
 baseline_commit: 5bf8fdf72afd1ae01f21070530504901c9a2b3ba
 ---
+
 # Story 2.2: Listado y Componente de Tarjeta de Artículo (Feed del Blog)
 
 Status: done
@@ -34,12 +35,14 @@ so that pueda explorar los temas y extraer rápidamente su valor.
 ## Developer Context & Guardrails
 
 ### Technical Requirements
+
 - **Framework:** Astro 4.x/5.x
 - **Data Source:** Fetch posts from `src/content/blog/` using `getCollection('blog')`.
 - **Styling:** Tailwind CSS should be used for all layout and styling. Must align with 'Midnight Cobalt' theme (`surface-base`, `surface-raised`, `accent`). Implementar truncado de texto (`line-clamp-2` o `line-clamp-3`) y estados interactivos de tarjeta entera (`hover`, `active`, `focus-visible`) estrictamente con clases de Tailwind.
 - **Typography:** Use Sans Serif for titles and body, Monospace for metadata (date, tags). Las etiquetas (tags) deben tener estilo de badge.
 
 ### Architecture Compliance
+
 - **AD-1 (Manejo de Estilos):** Utilizar Tailwind CSS como motor principal.
 - **AD-2 (Interactividad):** Este componente probablemente no requiere interactividad del cliente, por lo que debe ser puro HTML/CSS (Astro Component) sin React a menos que sea estrictamente necesario. Todo el feedback visual (hover/click) debe lograrse con CSS.
 - **AD-3 (Capa de Datos):** Extraer artículos mediante Astro Content Collections.
@@ -47,15 +50,18 @@ so that pueda explorar los temas y extraer rápidamente su valor.
 - **UX-DR9:** Estados interactivos (Hover: transición `0.2s ease` de reborde color accent; Active: reducción tamaño `scale 0.98` en clicks).
 
 ### Previous Story Intelligence
+
 - **From Story 2.1:** Content collection `blog` is correctly configured using `zod` in `src/content.config.ts`.
 - It expects `title` (string), `excerpt` (string), `date` (date), and `tags` (array of strings, lowercased).
 - Hay un `sample-post.md` disponible para probar el listado.
 
 ### File Structure Requirements
+
 - `src/pages/blog/index.astro` (NUEVO) - Para mostrar la lista de artículos.
 - `src/components/BlogArticleCard.astro` (NUEVO) - Componente UI para la tarjeta de artículo individual.
 
 ### Testing Requirements
+
 - Confirmar que la ruta `/blog` carga correctamente.
 - Validar contraste de accesibilidad en los textos (WCAG 4.5:1).
 - Comprobar accesibilidad con teclado (`focus-visible`) en las tarjetas.
@@ -81,9 +87,11 @@ so that pueda explorar los temas y extraer rápidamente su valor.
 ## Dev Agent Record
 
 ### Agent Model Used
+
 Gemini 3.1 Pro (High)
 
 ### Completion Notes List
+
 - Ultimate context engine analysis completed - comprehensive developer guide created.
 - [Dev Agent] Implementación completada con éxito.
 - Componente `BlogArticleCard.astro` creado implementando todos los estados interactivos requeridos en CSS.
