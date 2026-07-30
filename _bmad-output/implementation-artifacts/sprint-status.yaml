@@ -65,7 +65,7 @@ development_status:
   2-1-configuracion-de-colecciones-de-contenido-content-collections: done
   2-2-listado-y-componente-de-tarjeta-de-articulo-feed-del-blog: done
   2-3-filtrado-de-articulos-por-categorias-y-etiquetas: done
-  2-4-lectura-de-articulo-individual-renderizado-markdown-mdx: backlog
+  2-4-lectura-de-articulo-individual-renderizado-markdown-mdx: done
   epic-2-retrospective: optional
   epic-3: backlog
   3-1-seccion-y-enlace-del-sandbox-en-navegacion-global: backlog

@@ -9,4 +9,9 @@ export default defineConfig({
   site: 'https://narvaezdario91.github.io',
   base: '/narvaezdario_web_page',
   integrations: [react(), tailwind()],
+  markdown: {
+    shikiConfig: {
+      theme: 'dracula',
+    },
+  },
 });

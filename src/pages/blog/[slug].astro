@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const formatDate = (date: Date) => {
+  return new Intl.DateTimeFormat('es-ES', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+};
+
+const baseUrl = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+---
+
+<Layout title={`${post.data.title} | Blog Darío Narváez`}>
+  <main class="container mx-auto px-4 py-16">
+    <article class="mx-auto max-w-3xl">
+      <header class="mb-10">
+        <a href={`${baseUrl}/blog`} class="text-accent hover:underline mb-6 inline-block font-medium">
+          &larr; Volver al blog
+        </a>
+        <h1 class="text-4xl md:text-5xl font-bold text-text-ink dark:text-white mb-6 leading-tight">
+          {post.data.title}
+        </h1>
+        <div class="flex flex-wrap items-center gap-4 text-text-ink/70 dark:text-gray-400">
+          <time datetime={post.data.date.toISOString()} class="font-medium">
+            {formatDate(post.data.date)}
+          </time>
+          {post.data.tags && post.data.tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {post.data.tags.map((tag: string) => (
+                <span class="bg-surface-raised border border-border-hairline px-2.5 py-1 rounded-md text-sm text-text-ink dark:text-white">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </header>
+
+      {/* Markdown Content with Tailwind Typography */}
+      <div class="prose prose-lg dark:prose-invert max-w-none 
+                  prose-headings:font-bold prose-headings:text-text-ink dark:prose-headings:text-white
+                  prose-p:text-text-ink/80 dark:prose-p:text-gray-300 prose-p:leading-relaxed
+                  prose-a:text-accent hover:prose-a:text-accent/80 prose-a:no-underline
+                  prose-code:text-accent dark:prose-code:text-accent prose-code:bg-surface-raised prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:font-mono prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+                  prose-pre:bg-[#282a36] prose-pre:text-[#f8f8f2] prose-pre:font-mono prose-pre:text-sm prose-pre:p-4 prose-pre:rounded-lg prose-pre:overflow-x-auto prose-pre:border prose-pre:border-border-hairline prose-pre:shadow-sm
+                  prose-blockquote:border-l-accent prose-blockquote:bg-surface-raised/50 prose-blockquote:px-4 prose-blockquote:py-1 prose-blockquote:rounded-r-lg prose-blockquote:text-text-ink/70 dark:prose-blockquote:text-gray-400 prose-blockquote:not-italic
+                  prose-img:rounded-xl prose-img:shadow-md
+                  prose-hr:border-border-hairline">
+        <Content />
+      </div>
+    </article>
+  </main>
+</Layout>
